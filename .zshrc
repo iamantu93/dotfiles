@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+  export PATH=$HOME/.config/composer/vendor/bin:$PATH
   export TERM="xterm-256color"
 # Path to your oh-my-zsh installation.
   export ZSH="/home/antu/.oh-my-zsh"
@@ -104,20 +104,25 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 
 # New path inclusion
- export PATH=~/.config/composer/vendor/bin:$PATH
 
  #Aliases
  alias zshconfig="vim ~/.zshrc"
  alias src="source ~/.zshrc"
  alias ll='ls -lah'
- alias api='sudo apt install'
- alias apr='sudo apt remove'
- alias apu='sudo apt update'
- alias apup='sudo apt upgrade'
- alias apa='sudo apt autoremove'
- alias sni='snap install'
- alias snr='snap remove'
+# alias api='sudo apt install'
+# alias apr='sudo apt remove'
+# alias apu='sudo apt update'
+# alias apup='sudo apt upgrade'
+# alias apa='sudo apt autoremove'
+# alias sni='snap install'
+# alias snr='snap remove'
+ alias pi='sudo pacman -S'
+ alias pss='sudo pacman -Ss'
+ alias pr='sudo pacman -Rns'
+ alias pc='sudo pacman -Sc'
+ alias pu='sudo pacman -Syu'
  alias r='ranger'
+ alias er='sudo vim /etc/resolv.conf'
  alias mp='udisksctl mount -b'
  alias gi='git init'
  alias gaa='git add .'
