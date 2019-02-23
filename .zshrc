@@ -119,7 +119,7 @@ source $ZSH/oh-my-zsh.sh
  alias pi='sudo pacman -S'
  alias pss='sudo pacman -Ss'
  alias pr='sudo pacman -Rns'
- alias pc='sudo pacman -Sc'
+ alias pc='sudo pacman -Scc'
  alias pu='sudo pacman -Syu'
  alias r='ranger'
  alias er='sudo vim /etc/resolv.conf'
