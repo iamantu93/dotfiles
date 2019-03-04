@@ -7,6 +7,18 @@ set smtp_pass = "nrxddthzqmvifteo"
 set from = "iam.antu93@gmail.com"
 set realname = "Antu Acharjee"
 set message_cachedir="~/.mutt_msgcache"
+set sidebar_visible=yes
+set sidebar_width=25
+
+bind index,pager \CP sidebar-prev
+bind index,pager \CN sidebar-next
+bind index,pager \CO sidebar-open
+
+macro index b '<enter-command>toggle sidebar_visible<enter><refresh>'
+macro index b '<enter-command>toggle sidebar_visible<enter><redraw-screen>'
+
+
+
 #
 # # Change the following line to a different editor you prefer.
 set editor = 'vim'
