@@ -23,7 +23,7 @@
   "editor.fontWeight": "normal",
   "terminal.integrated.shell.linux": "/usr/bin/zsh",
   "window.titleBarStyle": "custom",
-  "editor.formatOnSave": true,
+  "editor.formatOnSave": false,
   "workbench.colorTheme": "Dracula",
   "workbench.iconTheme": "vscode-icons",
   "terminal.integrated.fontSize": 16,
