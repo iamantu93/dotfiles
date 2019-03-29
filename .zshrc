@@ -1,6 +1,6 @@
 # If you come from bash you might have to change your $PATH.
   export PATH=$HOME/.config/composer/vendor/bin:$PATH
-  export TERM="xterm-256color"
+ # export TERM="xterm-256color"
 # Path to your oh-my-zsh installation.
   export ZSH="/home/antu/.oh-my-zsh"
 
@@ -133,3 +133,4 @@ source $ZSH/oh-my-zsh.sh
 
 source ~/.oh-my-zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+

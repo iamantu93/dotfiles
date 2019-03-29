@@ -1,8 +1,9 @@
  
-search vid
 mkdir kernel
 search vi
 open_with gwenview
 
 search yay
+search vid
+rename The.Crown.Season.1.Complete
 delete
