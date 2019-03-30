@@ -52,7 +52,7 @@ esac
 use_color=true
 
 #Custom Color prompt
-export PS1="\[\033[38;5;35m\]\u\[$(tput sgr0)\]\[\033[38;5;220m\]:\[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;198m\]\@\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;156m\]\w\[$(tput sgr0)\]\[\033[38;5;43m\]>\[$(tput sgr0)\]"
+export PS1="\[\033[38;5;35m\]\u\[$(tput sgr0)\]\[\033[38;5;220m\]:\[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;198m\]\@\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;156m\]\w\[$(tput sgr0)\]\[\033[38;5;43m\]>\[$(tput sgr0)\] "
 
 # movement and autocompeletion at the prompt
 bind 'set completion-ignore-case on'	# case insensitive on tab completion
@@ -71,7 +71,6 @@ bind '"\e[B": history-search-forward'	# ArrowDown: history completion forward
 alias cp="cp -i"                          # confirm before overwriting something
 alias df='df -h'                          # human-readable sizes
 alias free='free -m'                      # show sizes in MB
-alias np='nano -w PKGBUILD'
 alias more=less
 
 xhost +local:root > /dev/null 2>&1
@@ -116,5 +115,3 @@ ex ()
   fi
 }
 
-# better yaourt colors
-export YAOURT_COLORS="nb=1:pkg=1:ver=1;32:lver=1;45:installed=1;42:grp=1;34:od=1;41;5:votes=1;44:dsc=0:other=1;35"
