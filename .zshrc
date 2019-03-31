@@ -8,9 +8,9 @@
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
- ZSH_THEME="powerlevel9k/powerlevel9k"
+ ZSH_THEME="random"
  POWERLEVEL9K_MODE='nerdfont-complete'
-# POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+ POWERLEVEL9K_PROMPT_ON_NEWLINE=true
  POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
  POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon dir_writable dir vcs)
  POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(virtualenv battery ram disk_usage time)
