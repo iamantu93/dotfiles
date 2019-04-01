@@ -1,6 +1,6 @@
 # If you come from bash you might have to change your $PATH.
-  export PATH=$HOME/.config/composer/vendor/bin:$PATH
- # export TERM="xterm-256color"
+ export PATH=$HOME/.config/composer/vendor/bin:$PATH
+ export TERM=xterm-256color
 # Path to your oh-my-zsh installation.
   export ZSH="/home/antu/.oh-my-zsh"
 
@@ -8,7 +8,7 @@
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
- ZSH_THEME="random"
+ ZSH_THEME="powerlevel9k/powerlevel9k"
  POWERLEVEL9K_MODE='nerdfont-complete'
  POWERLEVEL9K_PROMPT_ON_NEWLINE=true
  POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
@@ -76,7 +76,7 @@
 # Add wisely, as too many plugins slow down shell startup.
  plugins=( extract web-search bgnotify colorize z )
 
-source $ZSH/oh-my-zsh.sh
+#source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -119,18 +119,21 @@ source $ZSH/oh-my-zsh.sh
  alias pi='sudo pacman -S'
  alias pss='sudo pacman -Ss'
  alias pr='sudo pacman -Rns'
- alias pc='sudo pacman -Scc'
+ alias pc='sudo pacman -Scc' 
  alias pu='sudo pacman -Syu'
  alias r='ranger'
  alias er='sudo vim /etc/resolv.conf'
  alias mp='udisksctl mount -b'
+ alias lb='lsblk'
  alias gi='git init'
  alias gaa='git add .'
  alias gc='git commit -m'
  alias gp='git push --force origin master'
  alias srec='ffmpeg -f x11grab -s 1920x1080 -i :0.0 -f alsa -i default  out.mkv'
  alias wth='curl http://wttr.in'
+ alias mtm='simple-mtpfs ~/Phone' # Need simple-mtpfs to be installed
+ alias mtu='fusermount -u ~/Phone'
 
 source ~/.oh-my-zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
+source $ZSH/oh-my-zsh.sh

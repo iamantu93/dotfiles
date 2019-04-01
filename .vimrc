@@ -14,22 +14,23 @@ set backup
 set ai
 set lbr
 set si
+set clipboard=unnamedplus
+set wildmode=longest,list,full
+set t_CO=256
+set autowriteall
+syntax on
+color muon
 
 " Keyboard Shortcuts
 map <C-b> :NERDTreeToggle<CR>
 let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let mapleader = ','
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-Plugin 'VundleVim/Vundle.vim'
-" let Vundle manage Vundle, required
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
 
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
