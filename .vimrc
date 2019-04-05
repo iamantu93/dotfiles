@@ -39,7 +39,7 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let mapleader = ','
-inoremap jk <esc>
+inoremap ,, <esc>
 nmap <leader>, :w<cr>
 noremap <space> :set hlsearch! hlsearch?<cr>
 
@@ -47,23 +47,21 @@ noremap <space> :set hlsearch! hlsearch?<cr>
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'vim-airline/vim-airline'
-Plugin 'mattn/emmet-vim'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'scrooloose/syntastic'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'tpope/vim-ragtag'
-Plugin 'tpope/vim-commentary'   " gcc to comment a line or gc to selection in VI mode
-Plugin 'tpope/vim-surround'     " cs to surround ds to delete, also ysiw]
-Plugin 'tpope/vim-endwise'      " add end endif etc. automatically
-Plugin 'junegunn/goyo.vim'      " Distraction free edit with :Goyo
-Plugin 'ryanoasis/vim-devicons' " Add filetype icons
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'Xuyuanp/nerdtree-syntax-highlighting'
+Plugin 'kien/ctrlp.vim'                      " Fuzzy searching of files using ctrl+p
+Plugin 'scrooloose/nerdtree'                 " The file browser tree
+Plugin 'vim-airline/vim-airline'             " The statusline below
+Plugin 'mattn/emmet-vim'                     " Emmet Trigger ctrl+y+;
+Plugin 'flazz/vim-colorschemes'              " Color Schemes
+Plugin 'scrooloose/syntastic'                " Code linting. Linter must be installed like php,pylint,jshint
+Plugin 'SirVer/ultisnips'                    " Snippet engine for vim
+Plugin 'honza/vim-snippets'                  " Snippets used by engine
+Plugin 'jiangmiao/auto-pairs'                " Auto pairs of quotes or {} etc
+Plugin 'tpope/vim-commentary'                " gcc to comment a line or gc to selection in VI mode
+Plugin 'tpope/vim-surround'                  " cs to surround ds to delete, also ysiw]
+Plugin 'tpope/vim-endwise'                   " add end endif etc. automatically
+Plugin 'junegunn/goyo.vim'                   " Distraction free edit with :Goyo
+Plugin 'ryanoasis/vim-devicons'              " Add filetype icons
+Plugin 'Xuyuanp/nerdtree-git-plugin'         " NerdTree enhancements
 Plugin  'mhinz/vim-signify'
 
 call vundle#end()            " required

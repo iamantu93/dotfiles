@@ -1,8 +1,15 @@
-# If you come from bash you might have to change your $PATH.
- export PATH=$HOME/.config/composer/vendor/bin:$PATH
- export TERM=xterm-256color
+ # ~/.zshrc
+  # My default zshrc
+   #     _          _         
+   #    / \   _ __ | |_ _   _ 
+   #   / _ \ | '_ \| __| | | |
+   #  / ___ \| | | | |_| |_| |
+   # /_/   \_\_| |_|\__|\__,_| 
+
+export PATH=$HOME/.config/composer/vendor/bin:$PATH
+export TERM=xterm-256color
 # Path to your oh-my-zsh installation.
-  export ZSH="/home/antu/.oh-my-zsh"
+export ZSH="/home/antu/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
