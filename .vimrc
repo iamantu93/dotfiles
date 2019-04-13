@@ -42,8 +42,9 @@ let mapleader = ','
 inoremap ,, <esc>
 nmap <leader>, :w<cr>
 noremap <space> :set hlsearch! hlsearch?<cr>
+noremap <F3> :Autoformat<CR>
 
-" set the runtime path to include Vundle and initialize
+"set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -63,10 +64,12 @@ Plugin 'junegunn/goyo.vim'                   " Distraction free edit with :Goyo
 Plugin 'ryanoasis/vim-devicons'              " Add filetype icons
 Plugin 'Xuyuanp/nerdtree-git-plugin'         " NerdTree enhancements
 Plugin  'mhinz/vim-signify'
+Plugin 'Chiel92/vim-autoformat'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+au BufWrite * :Autoformat  " Automatically format docmument upon saving. Common formatter eslint, autopep8, js-beautify, tidy, remark-cli, rustfmt
 let g:WebDevIconsOS = 'Darwin'
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:DevIconsEnableFoldersOpenClose = 1
@@ -75,18 +78,18 @@ let NERDTreeDirArrowExpandable = "\u00a0" " make arrows invisible
 let NERDTreeDirArrowCollapsible = "\u00a0" " make arrows invisible
 let NERDTreeNodeDelimiter = "\u263a" " smiley face
 
-     let g:NERDTreeIndicatorMapCustom = {
-        \ "Modified"  : "✹",
-        \ "Staged"    : "✚",
-        \ "Untracked" : "✭",
-        \ "Renamed"   : "➜",
-        \ "Unmerged"  : "═",
-        \ "Deleted"   : "✖",
-        \ "Dirty"     : "✗",
-        \ "Clean"     : "✔︎",
-        \ 'Ignored'   : '☒',
-        \ "Unknown"   : "?"
-\ }
+let g:NERDTreeIndicatorMapCustom = {
+			\ "Modified"  : "✹",
+			\ "Staged"    : "✚",
+			\ "Untracked" : "✭",
+			\ "Renamed"   : "➜",
+			\ "Unmerged"  : "═",
+			\ "Deleted"   : "✖",
+			\ "Dirty"     : "✗",
+			\ "Clean"     : "✔︎",
+			\ 'Ignored'   : '☒',
+			\ "Unknown"   : "?"
+			\ }
 
 " :PluginList       - lists configured plugins
 " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
