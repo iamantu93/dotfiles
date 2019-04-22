@@ -1,0 +1,19 @@
+[general]
+accounts = Gmail-mine
+
+[Account Gmail-mine]
+localrepository = Gmaillocal-mine
+remoterepository = Gmailserver-mine
+synclabels = yes
+labelsheader = X-Keywords
+
+[Repository Gmailserver-mine]
+type = Gmail
+remotepass =
+remoteuser = iam.antu93@gmail.com
+sslcacertfile=/etc/ssl/certs/ca-certificates.crt
+ssl_version = tls1_2
+
+[Repository Gmaillocal-mine]
+type = GmailMaildir
+localfolders = ~/Mail

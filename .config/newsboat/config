@@ -1,0 +1,2 @@
+auto-reload yes
+macro y set browser "mpv %u"; open-in-browser ; set browser "firefox %u"

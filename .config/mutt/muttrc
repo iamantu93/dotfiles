@@ -1,0 +1,50 @@
+# Change the following six lines to match your Gmail account details
+set smtp_url = "smtp://iam.antu93@smtp.gmail.com:587/"
+set smtp_pass = ""
+set from = "iam.antu93@gmail.com"
+set realname = "Antu Acharjee"
+set message_cachedir="~/.mutt_msgcache"
+mailboxes =INBOX =[Gmail].Sent\ Mail =[Gmail].Bin =[Gmail].Drafts =[Gmail].Spam =[Gmail].Starred
+#set folder = "imaps://iam.antu93@gmail.com@imap.gmail.com:993"
+set folder = "~/Mail/"
+set spoolfile = "+INBOX"
+
+#Sidebar settings
+set sidebar_visible=yes
+set sidebar_width=25
+bind index,pager \CP sidebar-prev
+bind index,pager \CN sidebar-next
+bind index,pager \CO sidebar-open
+macro index b '<enter-command>toggle sidebar_visible<enter><refresh>'
+macro index b '<enter-command>toggle sidebar_visible<enter><redraw-screen>'
+
+# Color
+source color.muttrc
+
+# # Change the following line to a different editor you prefer.
+set editor = 'vim'
+
+# Basic config
+set imap_check_subscribed=yes
+set mail_check = 120
+set timeout = 300
+set imap_keepalive = 300
+set header_cache=~/.mutt/cache/headers
+set message_cachedir=~/.mutt/cache/bodies
+set certificate_file=~/.mutt/certificates
+set move = no
+set include
+set sort = 'threads'
+set sort_aux = 'reverse-last-date-received'
+set auto_tag = yes
+set pager_index_lines = 10
+ignore "Authentication-Results:"
+ignore "DomainKey-Signature:"
+ignore "DKIM-Signature:"
+hdr_order Date From To Cc
+alternative_order text/plain text/html *
+auto_view text/html
+bind editor <Tab> complete-query
+bind editor ^T complete
+bind editor <space> noop
+bind compose y send-message
