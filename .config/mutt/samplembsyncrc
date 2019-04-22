@@ -2,7 +2,7 @@ IMAPStore gmail-remote
 Host imap.gmail.com
 port 993
 User iam.antu93@gmail.com
-Pass nrxddthzqmvifteo
+Pass
 SSLType IMAPS
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 
