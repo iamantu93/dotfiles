@@ -136,6 +136,7 @@ plugins=( extract web-search bgnotify colorize z )
  alias mtu='fusermount -u ~/Phone'
 
  vf() { fzf | xargs -r -I % $EDITOR % ;}
+ mo() {cd ~/Videos && fzf | xargs -r -I % mpv % ;}
 
  source ~/.oh-my-zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
  source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
