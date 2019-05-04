@@ -2,15 +2,15 @@ command=~/.scripts/statusbar/$BLOCK_NAME
 separator_block_width=15
 markup=pango
 
-[record]
-command=cat /tmp/recordingicon
-interval=once
-signal=9
+#[record]
+#command=cat /tmp/recordingicon
+#interval=once
+#signal=9
 
-[music]
-label=🎼
-interval=once
-signal=11
+#[music]
+#label=🎼
+#interval=once
+#signal=11
 
 [news]
 label=📰
@@ -22,22 +22,21 @@ label=📦
 interval=once
 signal=8
 
-[torrent]
-interval=20
-signal=7
+#[torrent]
+#interval=20
+#signal=7
 
 [weather]
 interval=18000
 signal=5
 
 [mailbox]
-label=📬
-interval=180
+interval=10
 signal=12
 
-#[memory]
-#interval=30
-#label=🧠
+[memory]
+interval=30
+label=🧠
 
 #[cpu]
 #interval=15
@@ -57,7 +56,7 @@ signal=10
 
 [battery]
 #command=battery BAT0
-interval=5
+interval=30
 
 [clock]
 label=📅
@@ -66,5 +65,5 @@ interval=30
 [internet]
 interval=10
 
-[help]
-interval=once
+#[help]
+#interval=once

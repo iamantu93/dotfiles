@@ -10,6 +10,7 @@ export PATH=$HOME/.config/composer/vendor/bin:$PATH
 export TERM=xterm-256color
 export ZSH="/home/antu/.oh-my-zsh"
 export EDITOR=vim
+export TERMINAL="st"
 
 ZSH_THEME="powerlevel9k/powerlevel9k"
 POWERLEVEL9K_MODE='nerdfont-complete'
@@ -138,6 +139,10 @@ plugins=( extract web-search bgnotify colorize z )
  vf() { fzf | xargs -r -I % $EDITOR % ;}
  mo() {cd ~/Videos && fzf | xargs -r -I % mpv % ;}
 
- source ~/.oh-my-zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
- source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
- source $ZSH/oh-my-zsh.sh
+#Start graphical server if i3 not already running.
+	[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x i3 >/dev/null && exec startx
+
+
+	source ~/.oh-my-zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+	source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+	source $ZSH/oh-my-zsh.sh
