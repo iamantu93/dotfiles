@@ -8,12 +8,12 @@ markup=pango
 #signal=9
 
 [music]
-label=🎼
+#label=
 interval=30
 #isignal=11
 
 [news]
-label=📰
+#label=
 interval=once
 signal=6
 
