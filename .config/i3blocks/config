@@ -7,10 +7,10 @@ markup=pango
 #interval=once
 #signal=9
 
-#[music]
-#label=🎼
-#interval=once
-#signal=11
+[music]
+label=🎼
+interval=30
+#isignal=11
 
 [news]
 label=📰

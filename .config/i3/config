@@ -5,7 +5,7 @@ set $mod Mod4
 # Basic definition
 gaps inner 5
 gaps outer 5
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 3
 
 #Dropdown terminal
 for_window [instance="dropdown_*"] floating enable
@@ -46,7 +46,7 @@ bindsym $mod+d exec dmenu_run
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # Application shortcuts
-bindsym $mod+b exec firefox
+bindsym $mod+b exec --no-startup-id brave
 
 # change focus
 bindsym $mod+j focus left
@@ -150,11 +150,10 @@ mode "resize" {
 # Pressing right will grow the window’s width.
 # Pressing up will shrink the window’s height.
 # Pressing down will grow the window’s height.
-	bindsym j resize shrink width 10 px or 10 ppt
-		bindsym k resize grow height 10 px or 10 ppt
-		bindsym l resize shrink height 10 px or 10 ppt
-		bindsym semicolon resize grow width 10 px or 10 ppt
-
+	bindsym j resize shrink width 10 px
+		bindsym k resize grow height 10 px
+		bindsym l resize shrink height 10 px
+		bindsym semicolon resize grow width 10 px
 # same bindings, but for the arrow keys
 		bindsym Left resize shrink width 10 px or 10 ppt
 		bindsym Down resize grow height 10 px or 10 ppt
