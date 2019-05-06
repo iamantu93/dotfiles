@@ -137,7 +137,7 @@ plugins=( extract web-search bgnotify colorize z )
  alias mtu='fusermount -u ~/Phone'
 
  vf() { fzf | xargs -r -I % $EDITOR % ;}
- mo() {cd ~/Videos && fzf | xargs -r -I % mpv % ;}
+ mo() {cd ~/Videos && fzf | xargs -r -I {} mpv "{}" ;}
 
 #Start graphical server if i3 not already running.
 	[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x i3 >/dev/null && exec startx

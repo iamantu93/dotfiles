@@ -12,4 +12,8 @@ case $BLOCK_BUTTON in
 		- Left click opens neomutt
 		- Middle click syncs mail" ;;
 esac
-echo "📬" "$(ls ~/Mail/INBOX/new | wc -l)"
+if [ $(ls ~/Mail/INBOX/new | wc -l) = 0 ]; then
+	echo ""
+else
+	echo "📬" "$(ls ~/Mail/INBOX/new | wc -l)"
+fi
