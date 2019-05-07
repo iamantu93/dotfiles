@@ -7,7 +7,10 @@
 #  / ___ \| | | | |_| |_| |
 # /_/   \_\_| |_|\__|\__,_|
 
-zsh
+[ "$(tty)" = "/dev/tty1"  ] && ! pgrep -x i3 >/dev/null && exec startx
+export TERMINAL="st"
+export EDITOR="vim"
+fish
 [[ $- != *i* ]] && return
 
 colors() {
