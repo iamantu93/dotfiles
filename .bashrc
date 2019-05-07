@@ -6,8 +6,6 @@
 #   / _ \ | '_ \| __| | | |
 #  / ___ \| | | | |_| |_| |
 # /_/   \_\_| |_|\__|\__,_|
-
-[ "$(tty)" = "/dev/tty1"  ] && ! pgrep -x i3 >/dev/null && exec startx
 export TERMINAL="st"
 export EDITOR="vim"
 fish
@@ -118,3 +116,4 @@ ex ()
 	fi
 }
 
+[ "$(tty)" = "/dev/tty1"  ] && !pgrep -x i3 >/dev/null && exec startx
