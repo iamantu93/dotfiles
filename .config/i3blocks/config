@@ -36,7 +36,7 @@ signal=12
 
 [memory]
 interval=30
-label=🧠
+#label=🧠
 
 #[cpu]
 #interval=15
@@ -59,7 +59,7 @@ signal=10
 interval=30
 
 [clock]
-label=📅
+#label=📅
 interval=30
 
 [internet]
