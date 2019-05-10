@@ -2,6 +2,7 @@ function fish_greeting
 end
 
 set -x TERMINAL st
+fish_vi_key_bindings
 
 function fish_prompt
 set_color red --bold
@@ -11,9 +12,9 @@ printf $USER
 set_color green
 printf @
 set_color blue
-printf "$hostname"
+printf "$hostname "
 set_color magenta
-printf $PWD
+echo -n $PWD | sed 's|/home/antu|~|'
 set_color red
 printf "]"
 set_color green --bold
@@ -43,3 +44,10 @@ abbr srec "ffmpeg -f x11grab -s 1920x1080 -i :0.0 -r 40  -f alsa -i default  out
 abbr wth "curl http://wttr.in"
 abbr mtm "simple-mtpfs ~/Phone" # Need simple-mtpfs to be installed
 abbr mtu "fusermount -u ~/Phone"
+
+function vf
+
+command  fzf | xargs -r -I % $EDITOR % ;
+
+end
+

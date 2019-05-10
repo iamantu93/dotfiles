@@ -1,0 +1,3 @@
+#!/bin/sh
+offlineimap
+pkill -RTMIN+12 i3blocks
