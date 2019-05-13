@@ -4,7 +4,7 @@ set smtp_pass = ""
 set from = "iam.antu93@gmail.com"
 set realname = "Antu Acharjee"
 set message_cachedir="~/.mutt_msgcache"
-mailboxes =INBOX =[Gmail].Sent\ Mail =[Gmail].Bin =[Gmail].Drafts =[Gmail].Spam =[Gmail].Starred
+mailboxes =INBOX =[Gmail].Sent\ Mail =[Gmail].Bin =[Gmail].Drafts =[Gmail].Spam =[Gmail].Starred =[Gmail].All\ Mail
 #set folder = "imaps://iam.antu93@gmail.com@imap.gmail.com:993"
 set folder = "~/Mail/"
 set spoolfile = "+INBOX"
