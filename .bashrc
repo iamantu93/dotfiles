@@ -8,8 +8,8 @@
 # /_/   \_\_| |_|\__|\__,_|
 export TERMINAL="st"
 export EDITOR="vim"
-fish
 [[ $- != *i* ]] && return
+fish
 colors() {
 	local fgc bgc vals seq0
 

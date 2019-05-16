@@ -142,6 +142,7 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
+#Resize windows
 bindsym $mod+Shift+y exec --no-startup-id ~/.scripts/i3cmds/i3resize left
 bindsym $mod+Shift+u exec --no-startup-id ~/.scripts/i3cmds/i3resize right
 bindsym $mod+Shift+i exec --no-startup-id ~/.scripts/i3cmds/i3resize up
@@ -152,8 +153,8 @@ bar {
 	status_command i3blocks
 	position top
 	colors {
-			background #bfc12a
-			statusline #0065ff4d
+			background #293444
+			statusline #ffffff
 		}
 }
 
