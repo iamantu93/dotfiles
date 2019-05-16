@@ -14,4 +14,8 @@ case $BLOCK_BUTTON in
 		<b>Note:</b> Only one instance of newsboat (including updates) may be running at a time." ;;
 esac
 
-cat /tmp/newsupdate 2>/dev/null || echo "📰" "$(newsboat -x print-unread | awk '{ print $1}' | sed s/^0$//g)$(cat ~/.config/newsboat/.update 2>/dev/null)"
+if [ $(newsboat -x print-unread | awk '{ print $1}') = 0 ]; then
+	echo ""
+else
+	echo "📰" "$(newsboat -x print-unread | awk '{ print $1}')"  
+fi

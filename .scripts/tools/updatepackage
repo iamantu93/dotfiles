@@ -1,0 +1,3 @@
+#!/bin/sh
+pacman -Syuw --noconfirm
+pkill -RTMIN+8 i3blocks
