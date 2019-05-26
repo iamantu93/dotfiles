@@ -19,7 +19,7 @@ bindsym $mod+u [instance="dropdown_*"] scratchpad show;[instance="dropdown_tmuxd
 
 # Startup Applications
 exec --no-startup-id st -n dropdown_tmuxdd -e tmux
-exec --no-startup-id xwallpaper --zoom ~/.config/wall.jpg
+exec --no-startup-id xwallpaper --zoom ~/.config/wall.png
 exec --no-startup-id xcompmgr
 exec --no-startup-id dunst
 #exec --no-startup-id nm-applet # need netork-manager-applet
@@ -153,7 +153,7 @@ bar {
 	status_command i3blocks
 	position top
 	colors {
-			background #293444
+			background #c1ab01		
 			statusline #ffffff
 		}
 }
