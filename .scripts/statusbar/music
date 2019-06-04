@@ -1,8 +1,7 @@
 #!/bin/sh
 
 
-
-if [ $(pgrep -x cmus | wc -l) = 0 ]; then
+if [ $(pgrep -x cmus | wc -l) = 0  ]; then
 	echo ""
 else
 	echo "🎼" "$(cmus-remote -Q | grep status | awk '{print $2}' |sed 's/playing/▶️/;s/paused/⏸️/')""$(cmus-remote -Q |grep title |awk '{$1=$2=""; print $0 }')"

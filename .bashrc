@@ -8,8 +8,9 @@
 # /_/   \_\_| |_|\__|\__,_|
 export TERMINAL="st"
 export EDITOR="vim"
-fish
+export PATH=$HOME/.scripts/tools:$HOME/.scripts/i3cmds:$HOME/.scripts/cron:$PATH
 [[ $- != *i* ]] && return
+fish
 colors() {
 	local fgc bgc vals seq0
 
