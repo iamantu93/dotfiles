@@ -3,6 +3,7 @@ end
 
 set -x PATH $PATH ~/.scripts/i3cmds/ ~/.scripts/tools/
 set -x TERMINAL st
+set -x EDITOR vim
 fish_vi_key_bindings
 
 function fish_prompt
@@ -42,7 +43,7 @@ abbr gi "git init"
 abbr gaa "git add ."
 abbr gc "git commit -m"
 abbr gp "git push --force origin master"
-abbr srec "ffmpeg -f x11grab -s 1920x1080 -i :0.0 -r 40  -f alsa -i default  out.mp4"
+abbr srec "ffmpeg -f x11grab -s 1920x1080 -i :0.0 -r 60  -f alsa -i default  out.mp4"
 abbr wth "curl http://wttr.in"
 abbr mtm "simple-mtpfs ~/Phone" # Need simple-mtpfs to be installed
 abbr mtu "fusermount -u ~/Phone"

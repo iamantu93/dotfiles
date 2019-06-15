@@ -3,8 +3,8 @@
 set $mod Mod4
 
 # Basic definition
-gaps inner 10 
-gaps outer 6
+gaps inner 6 
+gaps outer 4
 for_window [class="^.*"] border pixel 4
 
 #Dropdown terminal
@@ -20,7 +20,7 @@ bindsym $mod+u [instance="dropdown_*"] scratchpad show;[instance="dropdown_tmuxd
 # Startup Applications
 exec --no-startup-id st -n dropdown_tmuxdd -e tmux
 exec --no-startup-id xwallpaper --zoom ~/.config/wall.png
-exec --no-startup-id xcompmgr
+exec --no-startup-id compton
 exec --no-startup-id dunst
 exec xmodmap -e "keycode 62 = space "
 exec xmodmap -e "Keycode 105 = Alt_R"
@@ -28,7 +28,7 @@ exec xmodmap -e "Keycode 105 = Alt_R"
 
 #Set gaps to 0
 bindsym $mod+Shift+d gaps inner current set 0; gaps outer current set 0
-bindsym $mod+Shift+t gaps inner current set 10; gaps outer current set 10
+bindsym $mod+Shift+t gaps inner current set 6; gaps outer current set 4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -158,8 +158,8 @@ bar {
 	status_command i3blocks
 	position top
 	colors {
-			background #7c470e 
-			statusline #00ff80 
+			background #e4c155 
+			statusline #ffffff 
 		}
 }
 

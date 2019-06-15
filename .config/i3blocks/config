@@ -13,7 +13,7 @@ interval=30
 #isignal=11
 
 [news]
-#label=
+label=📰
 interval=once
 signal=6
 
@@ -31,6 +31,7 @@ interval=18000
 signal=5
 
 [mailbox]
+label=📬
 interval=10
 signal=12
 
