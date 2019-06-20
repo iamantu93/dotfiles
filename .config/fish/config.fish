@@ -31,7 +31,7 @@ function fish_prompt
 end
 
 abbr pi "sudo pacman -S"
-abbr pss "sudo pacman -Ss"
+abbr pss "pacman -Ss"
 abbr pr "sudo pacman -Rns"
 abbr pc "sudo pacman -Scc"
 abbr pu "sudo pacman -Syu"
@@ -53,4 +53,3 @@ function vf
 command  fzf | xargs -r -I % $EDITOR % ;
 
 end
-
