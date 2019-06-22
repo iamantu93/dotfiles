@@ -1,7 +1,7 @@
 function fish_greeting
 end
 
-set -x PATH $PATH ~/.scripts/i3cmds/ ~/.scripts/tools/
+set -x PATH $PATH $HOME/.scripts/i3cmds/ $HOME/.scripts/tools/ 
 set -x TERMINAL st
 set -x EDITOR vim
 fish_vi_key_bindings

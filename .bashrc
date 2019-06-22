@@ -6,37 +6,7 @@
 #   / _ \ | '_ \| __| | | |
 #  / ___ \| | | | |_| |_| |
 # /_/   \_\_| |_|\__|\__,_|
-export TERMINAL="st"
-export EDITOR="vim"
-export PATH=$HOME/.scripts/tools:$HOME/.scripts/i3cmds:$HOME/.scripts/cron:$PATH
-[[ $- != *i* ]] && return
-fish
-colors() {
-	local fgc bgc vals seq0
 
-	printf "Color escapes are %s\n" '\e[${value};...;${value}m'
-	printf "Values 30..37 are \e[33mforeground colors\e[m\n"
-	printf "Values 40..47 are \e[43mbackground colors\e[m\n"
-	printf "Value  1 gives a  \e[1mbold-faced look\e[m\n\n"
-
-	# foreground colors
-	for fgc in {30..37}; do
-		# background colors
-		for bgc in {40..47}; do
-			fgc=${fgc#37} # white
-			bgc=${bgc#40} # black
-
-			vals="${fgc:+$fgc;}${bgc}"
-			vals=${vals%%;}
-
-			seq0="${vals:+\e[${vals}m}"
-			printf "  %-9s" "${seq0:-(default)}"
-			printf " ${seq0}TEXT\e[m"
-			printf " \e[${vals:+${vals+$vals;}}1mBOLD\e[m"
-		done
-		echo; echo
-	done
-}
 
 [ -r /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
 
@@ -52,8 +22,9 @@ esac
 
 use_color=true
 
-#Custom Color prompt
-export PS1="\[\033[38;5;35m\]\u\[$(tput sgr0)\]\[\033[38;5;220m\]:\[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;198m\]\@\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;156m\]\w\[$(tput sgr0)\]\[\033[38;5;43m\]>\[$(tput sgr0)\] "
+# Custom color prompt
+export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\W\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
+
 
 # movement and autocompeletion at the prompt
 bind 'set completion-ignore-case on'	# case insensitive on tab completion
@@ -68,7 +39,8 @@ bind '"\e[Z":menu-complete-backward'	# Shift+Tab: Cycle backwards
 bind '"\e[A": history-search-backward'	# ArrowUp: history completion backwards
 bind '"\e[B": history-search-forward'	# ArrowDown: history completion forward
 
-
+# some aliases
+alias l='ls -lah --color=auto --group-directories-first'
 alias cp="cp -i"                          # confirm before overwriting something
 alias df='df -h'                          # human-readable sizes
 alias free='free -m'                      # show sizes in MB
@@ -115,5 +87,3 @@ ex ()
 		echo "'$1' is not a valid file"
 	fi
 }
-
-[ "$(tty)" = "/dev/tty1"  ] && !pgrep -x i3 >/dev/null && exec startx
