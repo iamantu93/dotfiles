@@ -13,7 +13,7 @@ function fish_prompt
 	printf $USER
 	set_color green
 	printf @
-	set_color blue --bold
+	set_color blue
 	printf "$hostname "
 	set_color magenta
 	echo -n $PWD | sed 's|/home/antu|~|'

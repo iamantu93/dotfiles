@@ -161,7 +161,7 @@ bar {
 	status_command i3blocks
 	position top
 	colors {
-			background #983333 
+			background #1d5d60 
 			statusline #42f495 
 		}
 }
