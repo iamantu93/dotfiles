@@ -5,15 +5,13 @@
 # All other args are terminal settings.
 # Terminal names are in dropdown_* to allow easily setting i3 settings.
 
-[ -z "$1" ] && exit
+st -n dropdown_tmuxdd -e tmux
+i3 "for_window [instance=\"dropdown_*\"] floating enable"
+i3 "for_window [instance=\"dropdown_*\"] move scratchpad"
+i3 "for_window [instance=\"dropdown_*\"] sticky enable"
+i3 "for_window [instance=\"dropdown_*\"] scratchpad show"
+i3 "for_window [instance=\"dropdown_tmuxdd\"] resize set 1900 1030"
+i3 "for_window [instance=\"dropdown_tmuxdd\"] border pixel 3"
+i3 "for_window [instance=\"dropdown_*\"] move position center"
 
-script=$1
-shift
-if xwininfo -tree -root | grep "(\"dropdown_$script\" ";
-then
-	echo "Window detected."
-	i3 "[instance=\"dropdown_$script\"] scratchpad show; [instance=\"dropdown_$script\"] move position center"
-else
-	echo "Window not detected... spawning."
-	i3 "exec --no-startup-id $TERMINAL -n dropdown_$script $@ -e $script"
-fi
+

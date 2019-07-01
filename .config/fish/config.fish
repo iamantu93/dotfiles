@@ -1,11 +1,15 @@
 function fish_greeting
 end
 
-set -x PATH $PATH $HOME/.scripts/i3cmds/ $HOME/.scripts/tools/ 
+# Start Graphical server automatically
+[ (tty) = "/dev/tty1" ] && ! pgrep -x i3 >/dev/null && exec startx
+
+set -x PATH $PATH $HOME/.scripts/i3cmds/ $HOME/.scripts/tools/ $HOME/.scripts/cron/ 
 set -x TERMINAL st
-set -x EDITOR vim
+set -x EDITOR nvim
 fish_vi_key_bindings
 
+set -x PATH $PATH $HOME/.scripts/i3cmds/ $HOME/.scripts/tools/ 
 function fish_prompt
 	set_color red --bold
 	printf "["
@@ -34,7 +38,7 @@ abbr pi "sudo pacman -S"
 abbr pss "pacman -Ss"
 abbr pr "sudo pacman -Rns"
 abbr pc "sudo pacman -Scc"
-abbr pu "sudo pacman -Syu"
+abbr pu "sudo pacman -Syu && pkill -RTMIN+8 i3blocks"
 abbr r "ranger"
 abbr er "sudo vim /etc/resolv.conf"
 abbr mp "udisksctl mount -b /dev/sd"
@@ -47,9 +51,18 @@ abbr srec "ffmpeg -f x11grab -s 1920x1080 -i :0.0 -r 60  -f alsa -i default  out
 abbr wth "curl http://wttr.in"
 abbr mtm "simple-mtpfs ~/Phone" # Need simple-mtpfs to be installed
 abbr mtu "fusermount -u ~/Phone"
+abbr ccat "highlight --out-format=ansi --force"
+abbr vim "nvim"
 
 function vf
 
-command  fzf | xargs -r -I % $EDITOR % ;
+	command  fzf | xargs -r -I % $EDITOR % ;
+
+end
+
+
+function se
+
+	command du -a ~/.scripts ~/.config | awk '{ print $2 }'| fzf | xargs -r -I % $EDITOR %;
 
 end

@@ -6,7 +6,7 @@
 #   / _ \ | '_ \| __| | | |
 #  / ___ \| | | | |_| |_| |
 # /_/   \_\_| |_|\__|\__,_|
-
+fish
 [ -r /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
 
 # Change the window title of X terminals
@@ -39,7 +39,7 @@ bind '"\e[A": history-search-backward'	# ArrowUp: history completion backwards
 bind '"\e[B": history-search-forward'	# ArrowDown: history completion forward
 
 # some aliases
-alias l='ls -a --color=auto --group-directories-first'
+alias l='ls -a --color --group-directories-first'
 alias cp="cp -i"                          # confirm before overwriting something
 alias df='df -h'                          # human-readable sizes
 alias free='free -m'                      # show sizes in MB
@@ -61,8 +61,9 @@ alias srec='ffmpeg -f x11grab -s 1920x1080 -i :0.0 -r 40  -f alsa -i default  ou
 alias wth='curl http://wttr.in'
 alias mtm='simple-mtpfs ~/Phone' # Need simple-mtpfs to be installed
 alias mtu='fusermount -u ~/Phone'
+alias vim='nvim'
 
- vf() { fzf | xargs -r -I % $EDITOR % ;}
+vf() { fzf | xargs -r -I % $EDITOR % ;}
 se(){ du -a ~/.scripts ~/.config | awk '{ print $2 }'| fzf | xargs -r -I % $EDITOR %; }
 
 xhost +local:root > /dev/null 2>&1
