@@ -12,7 +12,7 @@ for_window [instance="dropdown_*"] floating enable
 for_window [instance="dropdown_*"] move scratchpad
 for_window [instance="dropdown_*"] sticky enable
 for_window [instance="dropdown_*"] scratchpad show
-for_window [instance="dropdown_tmuxdd"] resize set 1900 1030
+for_window [instance="dropdown_tmuxdd"] resize set 1400 700
 for_window [instance="dropdown_tmuxdd"] border pixel 3
 for_window [instance="dropdown_*"] move position center
 bindsym $mod+u [instance="dropdown_*"] scratchpad show;[instance="dropdown_tmuxdd"] move position center
@@ -22,9 +22,7 @@ exec --no-startup-id st -n dropdown_tmuxdd -e tmux
 exec --no-startup-id xwallpaper --zoom ~/.config/wall.png
 exec --no-startup-id compton
 exec --no-startup-id dunst
-exec --no-startup-id xmodmap -e "keycode 62 = space "
-exec --no-startup-id xmodmap -e "Keycode 37 = Alt_R "
-#exec --no-startup-id nm-applet # need netork-manager-applet
+exec --no-startup-id xmodmap -e "keycode 62 = space"
 
 #Set gaps to 0
 bindsym $mod+Shift+d gaps inner current set 0; gaps outer current set 0
@@ -159,7 +157,7 @@ bindsym $mod+Shift+o exec --no-startup-id ~/.scripts/i3cmds/i3resize down
 # Start i3bar.
 bar {
 	status_command i3blocks
-	position top
+	position top 
 	colors {
 			background #1d5d60 
 			statusline #42f495 

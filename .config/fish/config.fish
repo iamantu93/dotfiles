@@ -2,7 +2,7 @@ function fish_greeting
 end
 
 # Start Graphical server automatically
-[ (tty) = "/dev/tty1" ] && ! pgrep -x i3 >/dev/null && exec startx
+#[ (tty) = "/dev/tty1" ] && ! pgrep -x i3 >/dev/null && exec startx
 
 set -x PATH $PATH $HOME/.scripts/i3cmds/ $HOME/.scripts/tools/ $HOME/.scripts/cron/ 
 set -x TERMINAL st

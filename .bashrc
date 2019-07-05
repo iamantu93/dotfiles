@@ -6,10 +6,9 @@
 #   / _ \ | '_ \| __| | | |
 #  / ___ \| | | | |_| |_| |
 # /_/   \_\_| |_|\__|\__,_|
-fish
 [ -r /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
-
 # Change the window title of X terminals
+fish
 case ${TERM} in
 	xterm*|rxvt*|Eterm*|aterm|kterm|gnome*|interix|konsole*)
 		PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/\~}\007"'
