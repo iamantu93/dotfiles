@@ -1,3 +1,5 @@
+#!/usr/bin/fish
+
 function fish_greeting
 end
 
@@ -51,7 +53,7 @@ abbr srec "ffmpeg -f x11grab -s 1920x1080 -i :0.0 -r 60  -f alsa -i default  out
 abbr wth "curl http://wttr.in"
 abbr mtm "simple-mtpfs ~/Phone" # Need simple-mtpfs to be installed
 abbr mtu "fusermount -u ~/Phone"
-abbr ccat "highlight --out-format=ansi --force"
+alias ccat='highlight --out-format=ansi --force'
 abbr vim "nvim"
 
 function vf

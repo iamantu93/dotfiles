@@ -12,7 +12,7 @@ for_window [instance="dropdown_*"] floating enable
 for_window [instance="dropdown_*"] move scratchpad
 for_window [instance="dropdown_*"] sticky enable
 for_window [instance="dropdown_*"] scratchpad show
-for_window [instance="dropdown_tmuxdd"] resize set 1400 700
+for_window [instance="dropdown_tmuxdd"] resize set 1400 800
 for_window [instance="dropdown_tmuxdd"] border pixel 3
 for_window [instance="dropdown_*"] move position center
 bindsym $mod+u [instance="dropdown_*"] scratchpad show;[instance="dropdown_tmuxdd"] move position center
@@ -159,8 +159,8 @@ bar {
 	status_command i3blocks
 	position top 
 	colors {
-			background #1d5d60 
-			statusline #42f495 
+			background #08509e  
+			statusline #ffffff
 		}
 }
 
