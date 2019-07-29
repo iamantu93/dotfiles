@@ -1,4 +1,6 @@
 #!/bin/sh
+#Script to show volume in statusbar
+#dependency is pulsemixer
 
 case $BLOCK_BUTTON in
 	1) setsid "$TERMINAL" -e pulsemixer & ;;

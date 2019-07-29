@@ -140,9 +140,7 @@ plugins=( extract web-search bgnotify colorize z )
  mo() {cd ~/Videos && fzf | xargs -r -I {} mpv "{}" ;}
 
 #Start graphical server if i3 not already running.
-	[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x i3 >/dev/null && exec startx
-
-
-	source ~/.oh-my-zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-	source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-	source $ZSH/oh-my-zsh.sh
+[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x i3 >/dev/null && exec startx
+source ~/.oh-my-zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $ZSH/oh-my-zsh.sh

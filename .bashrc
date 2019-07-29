@@ -38,7 +38,7 @@ bind '"\e[B": history-search-forward'	# ArrowDown: history completion forward
 
 # some aliases
 alias l='ls -a --color --group-directories-first'
-alias cp="cp -i"                          # confirm before overwriting something
+alias cp="cp -vi"                          # confirm before overwriting something
 alias df='df -h'                          # human-readable sizes
 alias free='free -m'                      # show sizes in MB
 alias more=less
@@ -62,18 +62,12 @@ alias mtu='fusermount -u ~/Phone'
 alias vim='nvim'
 
 vf() { fzf | xargs -r -I % $EDITOR % ;}
-se(){ du -a ~/.scripts ~/.config | awk '{ print $2 }'| fzf | xargs -r -I % $EDITOR %; }
-
-xhost +local:root > /dev/null 2>&1
+se(){ du -a ~/.scripts ~/.config | awk '{ print $2 }'| fzf --height 70% --reverse | xargs -r -I % $EDITOR %; }
+op(){ fzf --height 70 % | xargs -r -I % xdg-open %; }
 
 complete -cf sudo
 
-# Bash won't get SIGWINCH if another process is in the foreground.
-# Enable checkwinsize so that bash will check the terminal size when
-# it regains control.  #65623
-# http://cnswww.cns.cwru.edu/~chet/bash/FAQ (E11)
 shopt -s checkwinsize
-
 shopt -s expand_aliases
 
 # export QT_SELECT=4

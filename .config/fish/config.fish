@@ -6,7 +6,7 @@ end
 # Start Graphical server automatically
 #[ (tty) = "/dev/tty1" ] && ! pgrep -x i3 >/dev/null && exec startx
 
-set -x PATH $PATH $HOME/.scripts/i3cmds/ $HOME/.scripts/tools/ $HOME/.scripts/cron/ 
+set -x PATH $PATH $HOME/.scripts/i3cmds/ $HOME/.scripts/tools/ $HOME/.scripts/cron/ $HOME/.config/composer/vendor/bin 
 set -x TERMINAL st
 set -x EDITOR nvim
 fish_vi_key_bindings
@@ -27,7 +27,7 @@ function fish_prompt
 	printf "]"
 	set_color green --bold
 
-	if test -d (pwd)/.git
+	if [ -d (pwd)/.git ]
 		printf "%s %s " (__fish_git_prompt) (__fish_git_prompt_informative_status)
 	else
 		printf " "
@@ -36,6 +36,7 @@ function fish_prompt
 	set_color normal
 end
 
+# Some abbribations
 abbr pi "sudo pacman -S"
 abbr pss "pacman -Ss"
 abbr pr "sudo pacman -Rns"
@@ -53,7 +54,7 @@ abbr srec "ffmpeg -f x11grab -s 1920x1080 -i :0.0 -r 60  -f alsa -i default  out
 abbr wth "curl http://wttr.in"
 abbr mtm "simple-mtpfs ~/Phone" # Need simple-mtpfs to be installed
 abbr mtu "fusermount -u ~/Phone"
-alias ccat='highlight --out-format=ansi --force'
+alias ccat="highlight --out-format=ansi --force"
 abbr vim "nvim"
 
 function vf
@@ -67,4 +68,9 @@ function se
 
 	command du -a ~/.scripts ~/.config | awk '{ print $2 }'| fzf | xargs -r -I % $EDITOR %;
 
+end
+
+function op
+
+	command fzf --height 70% | xargs -r -I % xdg-open % ;
 end
