@@ -48,9 +48,11 @@ bindsym $mod+d exec dmenu_run
 
 # Application shortcuts
 bindsym $mod+b exec --no-startup-id firefox
-bindsym $mod+r exec --no-startup-id st -e vifm
+bindsym $mod+r exec --no-startup-id st -e lf
 bindsym $mod+m exec --no-startup-id st -e neomutt
- 
+bindsym $mod+F4 exec --no-startup-id prompt "Hibernate computer?" "systemctl suspend"
+bindsym $mod+grave exec dmenuunicode
+bindsym $mod+Print exec maimpick
 
 # change focus
 bindsym $mod+j focus left

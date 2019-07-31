@@ -6,7 +6,6 @@
 #  / ___ \| | | | |_| |_| |
 # /_/   \_\_| |_|\__|\__,_|
 [ -r /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
-fish
 # Change the window title of X terminals
 case ${TERM} in
 	xterm*|rxvt*|Eterm*|aterm|kterm|gnome*|interix|konsole*)

@@ -1,5 +1,6 @@
 export EDITOR="nvim"
 export TERMINAL="st"
+export BROWSER="firefox"
 export PATH=$PATH:$HOME/.scripts/tools:$HOME/.scripts/i3cmds:$HOME/.scripts/cron
 [ "$(tty)" = "/dev/tty1"  ] && ! pgrep -x i3 >/dev/null && exec startx
 
