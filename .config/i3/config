@@ -53,7 +53,7 @@ bindsym $mod+m exec --no-startup-id st -e neomutt
 bindsym $mod+F4 exec --no-startup-id prompt "Hibernate computer?" "systemctl suspend"
 bindsym $mod+grave exec dmenuunicode
 bindsym $mod+Print exec maimpick
-
+bindsym $mod+F11 exec ducksearch
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -161,8 +161,8 @@ bar {
 	status_command i3blocks
 	position top 
 	colors {
-			background #08509e  
-			statusline #ffffff
+			background #7ea008  
+			statusline #9d02ab
 		}
 }
 
