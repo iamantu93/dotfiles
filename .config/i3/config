@@ -54,6 +54,7 @@ bindsym $mod+F4 exec --no-startup-id prompt "Hibernate computer?" "systemctl sus
 bindsym $mod+grave exec dmenuunicode
 bindsym $mod+Print exec maimpick
 bindsym $mod+F11 exec ducksearch
+
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -148,7 +149,7 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 # Lock i3
-bindsym $mod+Shift+x exec i3lock
+bindsym $mod+Shift+x exec prompt "Lock your computer?" "lockscreen"
 
 #Resize windows
 bindsym $mod+Shift+y exec --no-startup-id ~/.scripts/i3cmds/i3resize left
@@ -161,8 +162,8 @@ bar {
 	status_command i3blocks
 	position top 
 	colors {
-			background #7ea008  
-			statusline #9d02ab
+			background #949db1
+			statusline #6a4b26
 		}
 }
 

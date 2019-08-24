@@ -1,0 +1,25 @@
+
+alias vim='nvim'
+alias la='ls -lah --color --group-directories-first'
+alias l='ls -lh --color --group-directories-first'
+alias cp="cp -vi"                          # confirm before overwriting something
+alias df='df -h'                          # human-readable sizes
+alias free='free -m'                      # show sizes in MB
+alias more=less
+alias pi='sudo pacman -S'
+alias pss='pacman -Ss'
+alias pr='sudo pacman -Rns'
+alias pc='sudo pacman -Scc'
+alias pu='sudo pacman -Syu --noconfirm && pkill -RTMIN+8 i3blocks'
+alias er='sudo vim /etc/resolv.conf'
+alias mp='udisksctl mount -b'
+alias lb='lsblk'
+alias gi='git init'
+alias gaa='git add .'
+alias gc='git commit -m'
+alias gp='git push --force origin master'
+alias srec='ffmpeg -f x11grab -s 1920x1080 -i :0.0 -r 40  -f alsa -i default  out.mp4'
+alias wth='curl http://wttr.in'
+alias mtm='simple-mtpfs ~/Phone' # Need simple-mtpfs to be installed
+alias mtu='fusermount -u ~/Phone'
+alias ext='atool -X'
