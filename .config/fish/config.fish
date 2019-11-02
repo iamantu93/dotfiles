@@ -54,12 +54,16 @@ abbr srec "ffmpeg -f x11grab -s 1920x1080 -i :0.0 -r 60  -f alsa -i default  out
 abbr wth "curl http://wttr.in"
 abbr mtm "simple-mtpfs ~/Phone" # Need simple-mtpfs to be installed
 abbr mtu "fusermount -u ~/Phone"
-alias ccat="highlight --out-format=ansi --force"
+alias ccat "highlight --out-format=ansi --force"
 abbr vim "nvim"
+abbr apr "sudo apt remove"
+abbr api "sudo apt install"
+abbr apu "pkcon update"
+abbr apa "sudo apt autoremove"
 
 function vf
 
-	command  fzf | xargs -r -I % $EDITOR % ;
+	command du -a |awk '{print $2}'|fzf| xargs -r -I % $EDITOR % ;
 
 end
 
