@@ -6,12 +6,11 @@ end
 # Start Graphical server automatically
 #[ (tty) = "/dev/tty1" ] && ! pgrep -x i3 >/dev/null && exec startx
 
-set -x PATH $PATH $HOME/.scripts/i3cmds/ $HOME/.scripts/tools/ $HOME/.scripts/cron/ $HOME/.config/composer/vendor/bin 
 set -x TERMINAL st
 set -x EDITOR nvim
 fish_vi_key_bindings
+set -x MANPAGER "nvim -c 'set ft=man' - "
 
-set -x PATH $PATH $HOME/.scripts/i3cmds/ $HOME/.scripts/tools/ 
 function fish_prompt
 	set_color red --bold
 	printf "["
@@ -60,13 +59,9 @@ abbr apr "sudo apt remove"
 abbr api "sudo apt install"
 abbr apu "pkcon update"
 abbr apa "sudo apt autoremove"
-
-function vf
-
-	command du -a |awk '{print $2}'|fzf| xargs -r -I % $EDITOR % ;
-
-end
-
+abbr remap "xmodmap -e 'keycode 62 = space'"
+abbr l "ls -lh"
+abbr la "ls -lah"
 
 function se
 

@@ -64,8 +64,8 @@ bindkey -s '^o' 'lfcd\n'
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
-vf() { fzf | xargs -r -I % $EDITOR % ;}
-se(){ du -a ~/.scripts ~/.config | awk '{ print $2 }'| fzf --height 70% --reverse | xargs -r -I % $EDITOR %; }
+vf() { fzy | xargs -r -I % $EDITOR % ;}
+se(){ du -a ~/.scripts ~/.config | awk '{ print $2 }'| fzy | xargs -r -I % $EDITOR %; }
 ch(){ curl cheat.sh/$1; }
 
 # Load aliases and shortcuts if existent.
