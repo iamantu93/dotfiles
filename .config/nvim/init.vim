@@ -2,19 +2,20 @@ set nocompatible              " be iMproved, required
 filetype off   " required
 set hlsearch
 set ignorecase
-set number
 set incsearch
 set history=1000
 set ruler
+set relativenumber
+set number
 set showcmd
 set wildmenu
 set scrolloff=5
 set smartcase
-set backup
+set nobackup
 set ai
 set lbr
 set si
-set clipboard=unnamedplus
+set clipboard+=unnamedplus
 set wildmode=longest,list,full
 set t_CO=256
 set autowriteall
@@ -35,9 +36,6 @@ set encoding=UTF-8
 
 " Keyboard Shortcuts
 map <C-b> :NERDTreeToggle<CR>
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let mapleader = ','
 inoremap ,, <esc>
 nmap <leader>, :w<cr>
@@ -54,8 +52,6 @@ Plugin 'vim-airline/vim-airline'             " The statusline below
 Plugin 'mattn/emmet-vim'                     " Emmet Trigger ctrl+y+;
 Plugin 'flazz/vim-colorschemes'              " Color Schemes
 Plugin 'scrooloose/syntastic'                " Code linting. Linter must be installed like php,pylint,jshint
-Plugin 'SirVer/ultisnips'                    " Snippet engine for vim
-Plugin 'honza/vim-snippets'                  " Snippets used by engine
 Plugin 'jiangmiao/auto-pairs'                " Auto pairs of quotes or {} etc
 Plugin 'tpope/vim-commentary'                " gcc to comment a line or gc to selection in VI mode
 Plugin 'tpope/vim-surround'                  " cs to surround ds to delete, also ysiw]
@@ -69,7 +65,7 @@ Plugin 'Chiel92/vim-autoformat'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-au BufWrite * :Autoformat  " Automatically format docmument upon saving. Common formatter eslint, autopep8, js-beautify, tidy, remark-cli, rustfmt
+ " au BufWrite * :Autoformat  " Automatically format docmument upon saving. Common formatter eslint, autopep8, js-beautify, tidy, remark-cli, rustfmt
 let g:WebDevIconsOS = 'Darwin'
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:DevIconsEnableFoldersOpenClose = 1

@@ -27,7 +27,7 @@ function fish_prompt
 	set_color green --bold
 
 	if [ -d (pwd)/.git ]
-		printf "%s %s " (__fish_git_prompt) (__fish_git_prompt_informative_status)
+		printf "%s %s  " (__fish_git_prompt) (__fish_git_prompt_informative_status)
 	else
 		printf " "
 	end
@@ -57,7 +57,7 @@ alias ccat "highlight --out-format=ansi --force"
 abbr vim "nvim"
 abbr apr "sudo apt remove"
 abbr api "sudo apt install"
-abbr apu "pkcon update"
+abbr apu "sudo apt dist-upgrade"
 abbr apa "sudo apt autoremove"
 abbr remap "xmodmap -e 'keycode 62 = space'"
 abbr l "ls -lh"
@@ -68,6 +68,7 @@ function se
 	command du -a ~/.scripts ~/.config | awk '{ print $2 }'| fzf | xargs -r -I % $EDITOR %;
 
 end
+
 
 function op
 
