@@ -1,5 +1,13 @@
 
-export EDITOR='nvim'
+#export QT_STYLE_OVERRIDE=kvantum
+export EDITOR="nvim"
+export TERMINAL="st"
+export BROWSER="firefox"
+export PATH=$PATH:$HOME/.scripts/tools:$HOME/.scripts/i3cmds:$HOME/.scripts/cron
+export XDG_DATA_DIRS=$XDG_DATA_DIRS:/var/lib/flatpak/exports/share:/home/antu/.local/share/flatpak/exports/share
+export MANPAGER="nvim -c 'set ft=man' -"
+export SUDO_ASKPASS="$HOME/.scripts/tools/dmenupass"
+export LF_ICONS="di=:fi=:ln=:or=:ex=:*.c=:*.cc=:*.clj=:*.coffee=:*.cpp=:*.css=:*.d=:*.dart=:*.erl=:*.exs=:*.fs=:*.go=:*.h=:*.hh=:*.hpp=:*.hs=:*.html=:*.java=:*.jl=:*.js=:*.json=:*.lua=:*.md=:*.php=:*.pl=:*.pro=:*.py=:*.rb=:*.rs=:*.scala=:*.ts=:*.vim=:*.cmd=:*.ps1=:*.sh=:*.bash=:*.zsh=:*.fish=:*.tar=:*.tgz=:*.arc=:*.arj=:*.taz=:*.lha=:*.lz4=:*.lzh=:*.lzma=:*.tlz=:*.txz=:*.tzo=:*.t7z=:*.zip=:*.z=:*.dz=:*.gz=:*.lrz=:*.lz=:*.lzo=:*.xz=:*.zst=:*.tzst=:*.bz2=:*.bz=:*.tbz=:*.tbz2=:*.tz=:*.deb=:*.rpm=:*.jar=:*.war=:*.ear=:*.sar=:*.rar=:*.alz=:*.ace=:*.zoo=:*.cpio=:*.7z=:*.rz=:*.cab=:*.wim=:*.swm=:*.dwm=:*.esd=:*.jpg=:*.jpeg=:*.mjpg=:*.mjpeg=:*.gif=:*.bmp=:*.pbm=:*.pgm=:*.ppm=:*.tga=:*.xbm=:*.xpm=:*.tif=:*.tiff=:*.png=:*.svg=:*.svgz=:*.mng=:*.pcx=:*.mov=:*.mpg=:*.mpeg=:*.m2v=:*.mkv=:*.webm=:*.ogm=:*.mp4=:*.m4v=:*.mp4v=:*.vob=:*.qt=:*.nuv=:*.wmv=:*.asf=:*.rm=:*.rmvb=:*.flc=:*.avi=:*.fli=:*.flv=:*.gl=:*.dl=:*.xcf=:*.xwd=:*.yuv=:*.cgm=:*.emf=:*.ogv=:*.ogx=:*.aac=:*.au=:*.flac=:*.m4a=:*.mid=:*.midi=:*.mka=:*.mp3=:*.mpc=:*.ogg=:*.ra=:*.wav=:*.oga=:*.opus=:*.spx=:*.xspf=:*.pdf="
 
 # Set the prompt
 autoload -U colors && colors
@@ -68,9 +76,32 @@ vf() { fzy | xargs -r -I % $EDITOR % ;}
 se(){ du -a ~/.scripts ~/.config | awk '{ print $2 }'| fzy | xargs -r -I % $EDITOR %; }
 ch(){ curl cheat.sh/$1; }
 
-# Load aliases and shortcuts if existent.
-[ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
-[ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
+# Some aliases 
+alias vim='nvim'
+alias la='ls -lah --color --group-directories-first'
+alias l='ls -lh --color --group-directories-first'
+alias cp="cp -vi"                          # confirm before overwriting something
+alias df='df -h'                          # human-readable sizes
+alias free='free -m'                      # show sizes in MB
+alias more=less
+alias pi='sudo pacman -S'
+alias pss='pacman -Ss'
+alias pr='sudo pacman -Rns'
+alias pc='sudo pacman -Scc'
+alias pu='sudo pacman -Syu --noconfirm'
+alias remap='xmodmap -e " keycode 62 = space"'
+alias er='sudo vim /etc/resolv.conf'
+alias mp='udisksctl mount -b'
+alias lb='lsblk'
+alias gi='git init'
+alias gaa='git add .'
+alias gc='git commit -m'
+alias gp='git push --force origin master'
+alias srec='ffmpeg -f x11grab -s 1920x1080 -i :0.0 -r 40  -f alsa -i default  out.mp4'
+alias wth='curl http://wttr.in'
+alias mtm='simple-mtpfs ~/Phone' # Need simple-mtpfs to be installed
+alias mtu='fusermount -u ~/Phone'
+alias ext='atool -X'
 
 #Enable syntax highlighting
 source /home/antu/Documents/Code/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
