@@ -41,6 +41,7 @@ inoremap ,, <esc>
 nmap <leader>, :w<cr>
 noremap <space> :set hlsearch! hlsearch?<cr>
 noremap <F3> :Autoformat<CR>
+" au BufWrite * :Autoformat  " Automatically format docmument upon saving. Common formatter eslint, autopep8, js-beautify, tidy, remark-cli, rustfmt
 
 "set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
