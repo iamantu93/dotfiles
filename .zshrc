@@ -67,6 +67,7 @@ lfcd () {
     fi
 }
 bindkey -s '^o' 'lfcd\n'
+bindkey '^f' forward-word
 
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
@@ -104,4 +105,5 @@ alias mtu='fusermount -u ~/Phone'
 alias ext='atool -X'
 
 #Enable syntax highlighting
-source /home/antu/Documents/Code/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
