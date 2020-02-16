@@ -11,14 +11,16 @@ export LF_ICONS="di=:fi=:ln=:or=:ex=:*.c=:*.cc=:*.clj=:*
 
 # Set the prompt
 autoload -U colors && colors
-PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$fg[green]%}$(exec gitstatus)%{$reset_color%}"
+setopt prompt_subst
+shellprompt
+export PS1='$(shellprompt)'
+autoload -U promptinit && promptinit
 
 # History in cache directory:
 HISTSIZE=10000
 SAVEHIST=10000
-HISTFILE=~/.cache/zsh/history
-setopt histignorealldups sharehistory
-setopt no_list_ambiguous
+HISTFILE=~/.cache/zsh/history # Manually create the file
+setopt histignorealldups sharehistory no_list_ambiguous
 
 # Basic auto/tab complete:
 autoload -U compinit
@@ -73,8 +75,12 @@ bindkey '^f' forward-word
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
-vf() { fzy | xargs -r -I % $EDITOR % ;}
-se(){ du -a ~/.scripts ~/.config | awk '{ print $2 }'| fzy | xargs -r -I % $EDITOR %; }
+# Usefull options
+setopt autocd
+
+# Some functions
+vf() { fzf | xargs -r -I % $EDITOR % ;}
+se(){ du -a ~/.scripts ~/.config | awk '{ print $2 }'| fzf | xargs -r -I % $EDITOR %; }
 ch(){ curl cheat.sh/$1; }
 
 # Some aliases 
