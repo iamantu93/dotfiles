@@ -1,6 +1,7 @@
 
 #export QT_STYLE_OVERRIDE=kvantum
 export EDITOR="nvim"
+export BAT_THEME="Monokai Extended"
 export TERMINAL="st"
 export BROWSER="firefox"
 export PATH=$PATH:$HOME/.scripts/tools:$HOME/.scripts/i3cmds:$HOME/.scripts/cron

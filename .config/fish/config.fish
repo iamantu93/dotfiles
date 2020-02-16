@@ -10,29 +10,11 @@ set -x TERMINAL st
 set -x EDITOR nvim
 fish_vi_key_bindings
 set -x MANPAGER "nvim -c 'set ft=man' - "
+set -x fish_user_paths $HOME/.scripts/tools $fish_user_paths
 
 function fish_prompt
-	set_color red --bold
-	printf "["
-	set_color yellow
-	printf $USER
-	set_color green
-	printf @
-	set_color blue
-	printf "$hostname "
-	set_color magenta
-	echo -n $PWD | sed 's|/home/antu|~|'
-	set_color red
-	printf "]"
-	set_color green --bold
 
-	if [ -d (pwd)/.git ]
-		printf "%s %s  " (__fish_git_prompt) (__fish_git_prompt_informative_status)
-	else
-		printf " "
-	end
-	
-	set_color normal
+	shellprompt
 end
 
 # Some abbribations
@@ -62,6 +44,7 @@ abbr apa "sudo apt autoremove"
 abbr remap "xmodmap -e 'keycode 62 = space'"
 abbr l "ls -lh"
 abbr la "ls -lah"
+abbr cheat "curl cheat.sh"
 
 function se
 
