@@ -1,0 +1,53 @@
+#!/bin/sh
+
+echo "Upgrading the system"
+sudo dnf upgrade -y
+
+echo "Installing basic packages"
+sudo dnf install epel-release ansible neovim curl zsh wget -y
+
+echo "Setup zsh"
+sudo dnf config-manager --add-repo https://download.opensuse.org/repositories/shells:zsh-users:zsh-autosuggestions/Fedora_Rawhide/shells:zsh-users:zsh-autosuggestions.repo
+sudo dnf install -y zsh-autosuggestions
+echo "\nsource /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ~/.zshrc
+
+dnf config-manager --add-repo https://download.opensuse.org/repositories/shells:zsh-users:zsh-syntax-highlighting/Fedora_Rawhide/shells:zsh-users:zsh-syntax-highlighting.repo
+dnf install -y zsh-syntax-highlighting
+
+echo "Adding jenkins repo"
+sudo wget -O /etc/yum.repos.d/jenkins.repo \
+    https://pkg.jenkins.io/redhat/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat/jenkins.io-2023.key
+sudo dnf upgrade -y
+# Add required dependencies for the jenkins package
+sudo dnf install fontconfig java-17-openjdk -y
+sudo dnf install jenkins -y
+
+echo "Enable jenkins service"
+sudo systemctl start jenkins
+sudo systemctl enable jenkins
+
+echo "Adding docker repo"
+sudo dnf -y install dnf-plugins-core
+sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+
+echo "Installing docker"
+sudo dnf install docker-ce -y
+
+echo " Enable docker servive"
+sudo systemctl start docker
+sudo systemctl enable docker
+
+echo " adding user antu to docker group"
+sudo usermod -aG docker antu
+
+echo " Installing minikube"
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+
+echo " Installing kubectl"
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+
+echo "Installing nvm"
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
