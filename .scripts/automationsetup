@@ -4,15 +4,7 @@ echo "Upgrading the system"
 sudo dnf upgrade -y
 
 echo "Installing basic packages"
-sudo dnf install epel-release ansible neovim curl zsh wget -y
-
-echo "Setup zsh"
-sudo dnf config-manager --add-repo https://download.opensuse.org/repositories/shells:zsh-users:zsh-autosuggestions/Fedora_Rawhide/shells:zsh-users:zsh-autosuggestions.repo
-sudo dnf install -y zsh-autosuggestions
-echo "\nsource /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ~/.zshrc
-
-dnf config-manager --add-repo https://download.opensuse.org/repositories/shells:zsh-users:zsh-syntax-highlighting/Fedora_Rawhide/shells:zsh-users:zsh-syntax-highlighting.repo
-dnf install -y zsh-syntax-highlighting
+sudo dnf install epel-release ansible neovim curl git wget unzip -y
 
 echo "Adding jenkins repo"
 sudo wget -O /etc/yum.repos.d/jenkins.repo \
@@ -30,11 +22,12 @@ sudo systemctl enable jenkins
 echo "Adding docker repo"
 sudo dnf -y install dnf-plugins-core
 sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+sudo sed -i -e 's/baseurl=https:\/\/download\.docker\.com\/linux\/\(fedora\|rhel\)\/$releasever/baseurl\=https:\/\/download.docker.com\/linux\/centos\/$releasever/g' /etc/yum.repos.d/docker-ce.repo
 
 echo "Installing docker"
 sudo dnf install docker-ce -y
 
-echo " Enable docker servive"
+echo " Enable docker service"
 sudo systemctl start docker
 sudo systemctl enable docker
 
@@ -49,5 +42,33 @@ echo " Installing kubectl"
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 
-echo "Installing nvm"
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+echo "Install awscli"
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "/tmp/awscliv2.zip"
+unzip /tmp/awscliv2.zip
+sudo /tmp/aws/install
+
+echo "Adding terraform repo"
+sudo yum install -y yum-utils
+sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
+
+echo "Installing terraform"
+sudo yum -y install terraform
+
+echo "Install helm"
+curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+
+echo "Install starship prompt"
+curl -sS https://starship.rs/install.sh | sh
+
+echo "Install fish shell"
+sudo dnf config-manager --add-repo https://download.opensuse.org/repositories/shells:/fish:/release:/3/CentOS_8/shells:fish:release:3.repo
+sudo dnf install fish -y
+echo "Configure fish shell"
+mkdir -p ~/.config/fish/completions
+kubectl completion fish > ~/.config/fish/completions/kubectl.fish
+terraform -install-autocomplete
+helm completion fish > ~/.config/fish/completions/helm.fish
+echo "starship init fish | source" >> ~/.config/fish/config.fish
+exec fish
+
+
