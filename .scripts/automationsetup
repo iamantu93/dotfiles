@@ -4,7 +4,7 @@ echo "Upgrading the system"
 sudo dnf upgrade -y
 
 echo "Installing basic packages"
-sudo dnf install epel-release ansible neovim curl git wget unzip -y
+sudo dnf install epel-release ansible neovim curl git wget unzip util-linux-user -y
 
 echo "Adding jenkins repo"
 sudo wget -O /etc/yum.repos.d/jenkins.repo \
@@ -69,6 +69,7 @@ kubectl completion fish > ~/.config/fish/completions/kubectl.fish
 terraform -install-autocomplete
 helm completion fish > ~/.config/fish/completions/helm.fish
 echo "starship init fish | source" >> ~/.config/fish/config.fish
+sudo chsh -s /usr/bin/fish antu
 exec fish
 
 
