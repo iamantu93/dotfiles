@@ -69,6 +69,8 @@ kubectl completion fish > ~/.config/fish/completions/kubectl.fish
 terraform -install-autocomplete
 helm completion fish > ~/.config/fish/completions/helm.fish
 echo "starship init fish | source" >> ~/.config/fish/config.fish
+mkdir -p ~/.config/nvim
+curl -o ~/.config/nvim/init.vim https://raw.githubusercontent.com/iamantu93/dotfiles/master/.config/nvim/init.vim
 sudo chsh -s /usr/bin/fish antu
 exec fish
 
