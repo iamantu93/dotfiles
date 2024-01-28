@@ -4,7 +4,7 @@ echo "Upgrading the system"
 sudo dnf upgrade -y
 
 echo "Installing basic packages"
-sudo dnf install epel-release ansible neovim curl git wget unzip util-linux-user -y
+sudo dnf install epel-release ansible neovim curl git wget unzip util-linux-user highlight -y
 
 echo "Adding jenkins repo"
 sudo wget -O /etc/yum.repos.d/jenkins.repo \
