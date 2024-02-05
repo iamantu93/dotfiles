@@ -47,10 +47,9 @@ noremap <F3> :Autoformat<CR>
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'kien/ctrlp.vim'                      " Fuzzy searching of files using ctrl+p
+Plugin 'ctrlpvim/ctrlp.vim'                      " Fuzzy searching of files using ctrl+p
 Plugin 'scrooloose/nerdtree'                 " The file browser tree
 Plugin 'vim-airline/vim-airline'             " The statusline below
-Plugin 'mattn/emmet-vim'                     " Emmet Trigger ctrl+y+;
 Plugin 'flazz/vim-colorschemes'              " Color Schemes
 Plugin 'scrooloose/syntastic'                " Code linting. Linter must be installed like php,pylint,jshint
 Plugin 'jiangmiao/auto-pairs'                " Auto pairs of quotes or {} etc
@@ -75,20 +74,21 @@ let NERDTreeDirArrowExpandable = "\u00a0" " make arrows invisible
 let NERDTreeDirArrowCollapsible = "\u00a0" " make arrows invisible
 let NERDTreeNodeDelimiter = "\u263a" " smiley face
 
-let g:NERDTreeIndicatorMapCustom = {
-			\ "Modified"  : "✹",
-			\ "Staged"    : "✚",
-			\ "Untracked" : "✭",
-			\ "Renamed"   : "➜",
-			\ "Unmerged"  : "═",
-			\ "Deleted"   : "✖",
-			\ "Dirty"     : "✗",
-			\ "Clean"     : "✔︎",
-			\ 'Ignored'   : '☒',
-			\ "Unknown"   : "?"
-			\ }
+let g:NERDTreeGitStatusIndicatorMapCustom = {
+                        \ "Modified"  : "✹",
+                        \ "Staged"    : "✚",
+                        \ "Untracked" : "✭",
+                        \ "Renamed"   : "➜",
+                        \ "Unmerged"  : "═",
+                        \ "Deleted"   : "✖",
+                        \ "Dirty"     : "✗",
+                        \ "Clean"     : "✔︎",
+                        \ 'Ignored'   : '☒',
+                        \ "Unknown"   : "?"
+                        \ }
 
 " :PluginList       - lists configured plugins
 " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
 " :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+" :PluginClean      - confirms removal of unused plugins; append `!` to
+" auto-approve removal
