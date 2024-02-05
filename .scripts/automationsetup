@@ -4,7 +4,8 @@ echo "Upgrading the system"
 sudo dnf upgrade -y
 
 echo "Installing basic packages"
-sudo dnf install epel-release ansible neovim curl git wget unzip util-linux-user highlight -y
+sudo dnf install epel-release -y
+sudo dnf install ansible neovim curl git wget unzip util-linux-user highlight -y
 
 echo "Adding jenkins repo"
 sudo wget -O /etc/yum.repos.d/jenkins.repo \
@@ -12,12 +13,12 @@ sudo wget -O /etc/yum.repos.d/jenkins.repo \
 sudo rpm --import https://pkg.jenkins.io/redhat/jenkins.io-2023.key
 sudo dnf upgrade -y
 # Add required dependencies for the jenkins package
-sudo dnf install fontconfig java-17-openjdk -y
-sudo dnf install jenkins -y
+#sudo dnf install fontconfig java-17-openjdk -y
+#sudo dnf install jenkins -y
 
-echo "Enable jenkins service"
-sudo systemctl start jenkins
-sudo systemctl enable jenkins
+#echo "Enable jenkins service"
+#sudo systemctl start jenkins
+#sudo systemctl enable jenkins
 
 echo "Adding docker repo"
 sudo dnf -y install dnf-plugins-core
@@ -69,6 +70,7 @@ kubectl completion fish > ~/.config/fish/completions/kubectl.fish
 terraform -install-autocomplete
 helm completion fish > ~/.config/fish/completions/helm.fish
 echo "starship init fish | source" >> ~/.config/fish/config.fish
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 mkdir -p ~/.config/nvim
 curl -o ~/.config/nvim/init.vim https://raw.githubusercontent.com/iamantu93/dotfiles/master/.config/nvim/init.vim
 sudo chsh -s /usr/bin/fish antu
