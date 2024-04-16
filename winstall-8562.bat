@@ -1,0 +1,5 @@
+winget install --id=Zoom.Zoom -e  && winget install --id=Mozilla.Firefox -e  && winget install --id=Microsoft.WindowsTerminal -e  && winget install --id=PuTTY.PuTTY -e  && winget install --id=Microsoft.Skype -e  && winget install --id=Google.Chrome -e  && winget install --id=AnyDeskSoftwareGmbH.AnyDesk -e  && winget install --id=Oracle.VirtualBox -e  && winget install --id=Microsoft.VisualStudioCode -e  && winget install --id=WinSCP.WinSCP -e  && winget install --id=TheDocumentFoundation.LibreOffice -e  && winget install --id=dbeaver.dbeaver -e  && winget install --id=Docker.DockerDesktop -e  && winget install --id=VideoLAN.VLC -e && winget install --id=Notepad++.Notepad++ -e && winget install --id=WhatsApp.WhatsApp -e && winget install --id= Zoom.Zoom -e && winget install --id=TTYPlus.MTPutty -e
+
+wsl --install
+wsl --update
+wsl --install -d Ubuntu-22.04
