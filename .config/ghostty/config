@@ -1,6 +1,8 @@
 gtk-tabs-location= hidden
 background-opacity = 0.80
 background-blur =  true
+font-feature = calt
+font-size = 13
 theme = catppuccin-frappe
 font-family = SpaceMono Nerd Font
 window-decoration = client
