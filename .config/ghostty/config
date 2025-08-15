@@ -3,6 +3,5 @@ background-opacity = 0.80
 background-blur =  true
 theme = catppuccin-frappe
 font-family = SpaceMono Nerd Font
-background-blur = true
 window-decoration = client
 
