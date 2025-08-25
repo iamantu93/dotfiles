@@ -1,114 +1,171 @@
-
-#export QT_STYLE_OVERRIDE=kvantum
-export EDITOR="nvim"
-export BAT_THEME="Monokai Extended"
-export TERMINAL="st"
-export BROWSER="firefox"
-export PATH=$PATH:$HOME/.scripts/tools:$HOME/.scripts/i3cmds:$HOME/.scripts/cron
-export XDG_DATA_DIRS=$XDG_DATA_DIRS:/var/lib/flatpak/exports/share:/home/antu/.local/share/flatpak/exports/share
-export MANPAGER="nvim -c 'set ft=man' -"
-export SUDO_ASKPASS="$HOME/.scripts/tools/dmenupass"
-export LF_ICONS="di=:fi=:ln=:or=:ex=:*.c=:*.cc=:*.clj=:*.coffee=:*.cpp=:*.css=:*.d=:*.dart=:*.erl=:*.exs=:*.fs=:*.go=:*.h=:*.hh=:*.hpp=:*.hs=:*.html=:*.java=:*.jl=:*.js=:*.json=:*.lua=:*.md=:*.php=:*.pl=:*.pro=:*.py=:*.rb=:*.rs=:*.scala=:*.ts=:*.vim=:*.cmd=:*.ps1=:*.sh=:*.bash=:*.zsh=:*.fish=:*.tar=:*.tgz=:*.arc=:*.arj=:*.taz=:*.lha=:*.lz4=:*.lzh=:*.lzma=:*.tlz=:*.txz=:*.tzo=:*.t7z=:*.zip=:*.z=:*.dz=:*.gz=:*.lrz=:*.lz=:*.lzo=:*.xz=:*.zst=:*.tzst=:*.bz2=:*.bz=:*.tbz=:*.tbz2=:*.tz=:*.deb=:*.rpm=:*.jar=:*.war=:*.ear=:*.sar=:*.rar=:*.alz=:*.ace=:*.zoo=:*.cpio=:*.7z=:*.rz=:*.cab=:*.wim=:*.swm=:*.dwm=:*.esd=:*.jpg=:*.jpeg=:*.mjpg=:*.mjpeg=:*.gif=:*.bmp=:*.pbm=:*.pgm=:*.ppm=:*.tga=:*.xbm=:*.xpm=:*.tif=:*.tiff=:*.png=:*.svg=:*.svgz=:*.mng=:*.pcx=:*.mov=:*.mpg=:*.mpeg=:*.m2v=:*.mkv=:*.webm=:*.ogm=:*.mp4=:*.m4v=:*.mp4v=:*.vob=:*.qt=:*.nuv=:*.wmv=:*.asf=:*.rm=:*.rmvb=:*.flc=:*.avi=:*.fli=:*.flv=:*.gl=:*.dl=:*.xcf=:*.xwd=:*.yuv=:*.cgm=:*.emf=:*.ogv=:*.ogx=:*.aac=:*.au=:*.flac=:*.m4a=:*.mid=:*.midi=:*.mka=:*.mp3=:*.mpc=:*.ogg=:*.ra=:*.wav=:*.oga=:*.opus=:*.spx=:*.xspf=:*.pdf="
-
-# Set the prompt
+# ~/.zshrc file for zsh interactive shells.
+# see /usr/share/doc/zsh/examples/zshrc for examples
 eval "$(starship init zsh)"
-# History in cache directory:
-HISTSIZE=10000
-SAVEHIST=10000
-HISTFILE=~/.cache/zsh/history # Manually create the file
-setopt histignorealldups sharehistory no_list_ambiguous
 
-# Basic auto/tab complete:
-autoload -U compinit
-zstyle ':completion:*' menu select
+setopt autocd              # change directory just by typing its name
+setopt correct            # auto correct mistakes
+setopt interactivecomments # allow comments in interactive mode
+setopt magicequalsubst     # enable filename expansion for arguments of the form ‘anything=expression’
+setopt nonomatch           # hide error message if there is no match for the pattern
+setopt notify              # report the status of background jobs immediately
+setopt numericglobsort     # sort filenames numerically when it makes sense
+setopt promptsubst         # enable command substitution in prompt
+
+WORDCHARS='_-' # Don't consider certain characters part of the word
+
+# hide EOL sign ('%')
+
+# configure key keybindings
+bindkey -e                                        # emacs key bindings
+bindkey ' ' magic-space                           # do history expansion on space
+bindkey '^U' backward-kill-line                   # ctrl + U
+bindkey '^[[3;5~' kill-word                       # ctrl + Supr
+bindkey '^[[3~' delete-char                       # delete
+bindkey '^[[1;5C' forward-word                    # ctrl + ->
+bindkey '^[[1;5D' backward-word                   # ctrl + <-
+bindkey '^[[5~' beginning-of-buffer-or-history    # page up
+bindkey '^[[6~' end-of-buffer-or-history          # page down
+bindkey '^[[H' beginning-of-line                  # home
+bindkey '^[[F' end-of-line                        # end
+bindkey '^[[Z' undo                               # shift + tab undo last action
+
+# enable completion features
+autoload -Uz compinit
+compinit -d ~/.cache/zcompdump
+zstyle ':completion:*:*:*:*:*' menu select
+zstyle ':completion:*' auto-description 'specify: %d'
+zstyle ':completion:*' completer _expand _complete
+zstyle ':completion:*' format 'Completing %d'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
-zmodload zsh/complist
-compinit
-_comp_options+=(globdots)		# Include hidden files.
+zstyle ':completion:*' rehash true
+zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+zstyle ':completion:*' use-compctl false
+zstyle ':completion:*' verbose true
+zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
-# vi mode
-bindkey -v
-export KEYTIMEOUT=1
+# History configurations
+HISTFILE=~/.zsh_history
+HISTSIZE=1000
+SAVEHIST=2000
+setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
+setopt hist_ignore_dups       # ignore duplicated commands history list
+setopt hist_ignore_space      # ignore commands that start with space
+setopt hist_verify            # show command with history expansion to user before running it
+#setopt share_history         # share command history data
 
-# Change cursor shape for different vi modes.
-function zle-keymap-select {
-  if [[ ${KEYMAP} == vicmd ]] ||
-     [[ $1 = 'block' ]]; then
-    echo -ne '\e[1 q'
-  elif [[ ${KEYMAP} == main ]] ||
-       [[ ${KEYMAP} == viins ]] ||
-       [[ ${KEYMAP} = '' ]] ||
-       [[ $1 = 'beam' ]]; then
-    echo -ne '\e[5 q'
-  fi
-}
+# force zsh to show the complete history
+alias history="history 0"
 
-zle -N zle-keymap-select
-zle-line-init() {
-    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
-    echo -ne "\e[5 q"
-}
+alias apu="sudo apt update && sudo apt upgrade -y"
 
-zle -N zle-line-init
+# configure `time` format
+TIMEFMT=$'\nreal\t%E\nuser\t%U\nsys\t%S\ncpu\t%P'
 
-echo -ne '\e[5 q' # Use beam shape cursor on startup.
-preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
-# Use lf to switch directories and bind it to ctrl-o
-lfcd () {
-    tmp="$(mktemp)"
-    lf -last-dir-path="$tmp" "$@"
-    if [ -f "$tmp" ]; then
-        dir="$(cat "$tmp")"
-        rm -f "$tmp"
-        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+    # enable syntax-highlighting
+    if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+        . /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+        ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
+        ZSH_HIGHLIGHT_STYLES[default]=none
+        ZSH_HIGHLIGHT_STYLES[unknown-token]=underline
+        ZSH_HIGHLIGHT_STYLES[reserved-word]=fg=cyan,bold
+        ZSH_HIGHLIGHT_STYLES[suffix-alias]=fg=green,underline
+        ZSH_HIGHLIGHT_STYLES[global-alias]=fg=green,bold
+        ZSH_HIGHLIGHT_STYLES[precommand]=fg=green,underline
+        ZSH_HIGHLIGHT_STYLES[commandseparator]=fg=blue,bold
+        ZSH_HIGHLIGHT_STYLES[autodirectory]=fg=green,underline
+        ZSH_HIGHLIGHT_STYLES[path]=bold
+        ZSH_HIGHLIGHT_STYLES[path_pathseparator]=
+        ZSH_HIGHLIGHT_STYLES[path_prefix_pathseparator]=
+        ZSH_HIGHLIGHT_STYLES[globbing]=fg=blue,bold
+        ZSH_HIGHLIGHT_STYLES[history-expansion]=fg=blue,bold
+        ZSH_HIGHLIGHT_STYLES[command-substitution]=none
+        ZSH_HIGHLIGHT_STYLES[command-substitution-delimiter]=fg=magenta,bold
+        ZSH_HIGHLIGHT_STYLES[process-substitution]=none
+        ZSH_HIGHLIGHT_STYLES[process-substitution-delimiter]=fg=magenta,bold
+        ZSH_HIGHLIGHT_STYLES[single-hyphen-option]=fg=green
+        ZSH_HIGHLIGHT_STYLES[double-hyphen-option]=fg=green
+        ZSH_HIGHLIGHT_STYLES[back-quoted-argument]=none
+        ZSH_HIGHLIGHT_STYLES[back-quoted-argument-delimiter]=fg=blue,bold
+        ZSH_HIGHLIGHT_STYLES[single-quoted-argument]=fg=yellow
+        ZSH_HIGHLIGHT_STYLES[double-quoted-argument]=fg=yellow
+        ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]=fg=yellow
+        ZSH_HIGHLIGHT_STYLES[rc-quote]=fg=magenta
+        ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]=fg=magenta,bold
+        ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]=fg=magenta,bold
+        ZSH_HIGHLIGHT_STYLES[back-dollar-quoted-argument]=fg=magenta,bold
+        ZSH_HIGHLIGHT_STYLES[assign]=none
+        ZSH_HIGHLIGHT_STYLES[redirection]=fg=blue,bold
+        ZSH_HIGHLIGHT_STYLES[comment]=fg=black,bold
+        ZSH_HIGHLIGHT_STYLES[named-fd]=none
+        ZSH_HIGHLIGHT_STYLES[numeric-fd]=none
+        ZSH_HIGHLIGHT_STYLES[arg0]=fg=cyan
+        ZSH_HIGHLIGHT_STYLES[bracket-error]=fg=red,bold
+        ZSH_HIGHLIGHT_STYLES[bracket-level-1]=fg=blue,bold
+        ZSH_HIGHLIGHT_STYLES[bracket-level-2]=fg=green,bold
+        ZSH_HIGHLIGHT_STYLES[bracket-level-3]=fg=magenta,bold
+        ZSH_HIGHLIGHT_STYLES[bracket-level-4]=fg=yellow,bold
+        ZSH_HIGHLIGHT_STYLES[bracket-level-5]=fg=cyan,bold
+        ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]=standout
     fi
-}
-bindkey -s '^o' 'lfcd\n'
-bindkey '^f' forward-word
 
-# Edit line in vim with ctrl-e:
-autoload edit-command-line; zle -N edit-command-line
-bindkey '^e' edit-command-line
 
-# Usefull options
-setopt autocd
+# If this is an xterm set the title to user@host:dir
+case "$TERM" in
+xterm*|rxvt*|Eterm|aterm|kterm|gnome*|alacritty)
+    TERM_TITLE=$'\e]0;${debian_chroot:+($debian_chroot)}${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV))}%n@%m: %~\a'
+    ;;
+*)
+    ;;
+esac
 
-# Some functions
-vf() { fzf | xargs -r -I % $EDITOR % ;}
-se(){ du -a ~/.scripts ~/.config | awk '{ print $2 }'| fzf | xargs -r -I % $EDITOR %; }
-ch(){ curl cheat.sh/$1; }
+# enable color support of ls, less and man, and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    export LS_COLORS="$LS_COLORS:ow=30;44:" # fix ls color for folders with 777 permissions
 
-# Some aliases 
-alias vim='nvim'
-alias la='ls -lah --color --group-directories-first'
-alias l='ls -lh --color --group-directories-first'
-alias cp="cp -vi"                          # confirm before overwriting something
-alias df='df -h'                          # human-readable sizes
-alias free='free -m'                      # show sizes in MB
-alias more=less
-alias pi='sudo pacman -S'
-alias pss='pacman -Ss'
-alias pr='sudo pacman -Rns'
-alias pc='sudo pacman -Scc'
-alias pu='sudo pacman -Syu --noconfirm'
-alias remap='xmodmap -e " keycode 62 = space"'
-alias er='sudo vim /etc/resolv.conf'
-alias mp='udisksctl mount -b'
-alias lb='lsblk'
-alias gi='git init'
-alias gaa='git add .'
-alias gc='git commit -m'
-alias gp='git push --force origin master'
-alias srec='ffmpeg -f x11grab -s 1920x1080 -i :0.0 -r 40  -f alsa -i default  out.mp4'
-alias wth='curl http://wttr.in'
-alias mtm='simple-mtpfs ~/Phone' # Need simple-mtpfs to be installed
-alias mtu='fusermount -u ~/Phone'
-alias ext='atool -X'
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
 
-#Enable syntax highlighting
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-bindkey '^[[1;5C' forward-word
-bindkey '^[[1;5D' backward-word
-bindkey '^R' history-incremental-search-backward
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+    alias diff='diff --color=auto'
+    alias ip='ip --color=auto'
+    alias lazydocker='lazydocker.exe'
+
+    export LESS_TERMCAP_mb=$'\E[1;31m'     # begin blink
+    export LESS_TERMCAP_md=$'\E[1;36m'     # begin bold
+    export LESS_TERMCAP_me=$'\E[0m'        # reset bold/blink
+    export LESS_TERMCAP_so=$'\E[01;33m'    # begin reverse video
+    export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
+    export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
+    export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
+
+    # Take advantage of $LS_COLORS for completion as well
+    zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+    zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+fi
+
+# some more ls aliases
+alias ll='ls -l'
+alias la='ls -A'
+alias l='ls -CF'
+alias ssh='ssh.exe'
+alias git='git.exe'
+
+# enable auto-suggestions based on the history
+if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+    . /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    # change suggestion color
+    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#999'
+fi
+
+# enable command-not-found if installed
+if [ -f /etc/zsh_command_not_found ]; then
+    . /etc/zsh_command_not_found
+fi
