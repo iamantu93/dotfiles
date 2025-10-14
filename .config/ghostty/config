@@ -1,9 +1,8 @@
-gtk-tabs-location= hidden
-background-opacity = 0.80
+background-opacity = 0.70
 background-blur =  true
-font-feature = calt
-font-size = 13
 theme = catppuccin-frappe
 font-family = SpaceMono Nerd Font
+font-size = 13
+font-feature = calt
 window-decoration = client
-
+gtk-titlebar-style=tabs
