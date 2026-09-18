@@ -11,6 +11,8 @@ brew "eksctl"
 brew "fastfetch"
 # Open and extensible continuous delivery solution for Kubernetes
 brew "fluxcd"
+# Command-line fuzzy finder written in Go
+brew "fzf"
 # Kubernetes package manager
 brew "helm"
 # Lightweight and flexible command-line JSON processor

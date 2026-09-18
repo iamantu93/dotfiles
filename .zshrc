@@ -153,9 +153,16 @@ alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
 if [ "$(uname -s)" = "Darwin" ]; then
+
   alias ls='ls -G'	
   source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
   source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  function op() {
+    local file
+    file=$(find "$HOME" -type f 2>/dev/null | fzf --height 70%)
+    [[ -n "$file" ]] && open "$file"
+  }
+
 fi
 # change suggestion color
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#999'
