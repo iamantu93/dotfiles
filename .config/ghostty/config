@@ -1,8 +1,9 @@
-background-opacity = 0.70
+background-opacity = 0.90
+theme = Earthsong
 background-blur =  true
-theme = catppuccin-frappe
-font-family = SpaceMono Nerd Font
-font-size = 13
-font-feature = calt
+font-size = 17
+font-family = FiraCode Nerd Font Mono
+font-feature = calt,liga
 window-decoration = client
-gtk-titlebar-style=tabs
+right-click-action = copy-or-paste
+macos-icon = xray
