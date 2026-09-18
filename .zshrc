@@ -152,6 +152,7 @@ fi
 alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
+# Macos specific settings
 if [ "$(uname -s)" = "Darwin" ]; then
 
   alias ls='ls -G'	
