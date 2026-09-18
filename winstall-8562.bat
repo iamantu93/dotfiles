@@ -2,4 +2,4 @@ winget install --id=Zoom.Zoom -e  && winget install --id=Mozilla.Firefox -e  && 
 
 wsl --install
 wsl --update
-wsl --install -d Ubuntu-22.04
+wsl --install -d Ubuntu-26.04
