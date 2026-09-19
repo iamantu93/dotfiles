@@ -14,4 +14,3 @@ if [ "$(uname -s)" = "Darwin" ]; then
  else
     echo "This script is intended for macOS only."
 fi
-
