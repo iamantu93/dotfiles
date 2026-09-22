@@ -1,9 +1,10 @@
 background-opacity = 0.80
 theme = TokyoNight Moon
 background-blur = true
+
 font-size = 17
 font-family = FiraCode Nerd Font Mono
 font-feature = calt,liga
 window-decoration = client
 right-click-action = copy-or-paste
-macos-icon = chalkboard
+macos-icon = blueprint
