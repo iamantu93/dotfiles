@@ -109,8 +109,6 @@ alias l='ls -CF'
 if [ "$(uname -s)" = "Darwin" ]; then
 
   alias ls='ls -G'	
-  source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-  source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
   function op() {
     local file
     file=$(find "$HOME" -type f 2>/dev/null | fzf --height 70%)
@@ -171,8 +169,11 @@ if [ -f /etc/zsh_command_not_found ]; then
     . /etc/zsh_command_not_found
 fi
 
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source <(kubectl completion zsh)
 source <(helm completion zsh)
+source <(fzf --zsh)
 
 # Mole shell completion
 if output="$(mole completion zsh 2>/dev/null)"; then eval "$output"; fi
