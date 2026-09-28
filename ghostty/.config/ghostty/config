@@ -8,3 +8,4 @@ font-feature = calt,liga
 window-decoration = client
 right-click-action = copy-or-paste
 macos-icon = blueprint
+macos-option-as-alt = true
