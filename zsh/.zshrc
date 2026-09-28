@@ -80,12 +80,6 @@ esac
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     export LS_COLORS="$LS_COLORS:ow=30;44:" # fix ls color for folders with 777 permissions
-
-    #alias ls='ls --color=auto'
-    alias ls='ls -G'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
@@ -106,20 +100,17 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
+alias ls='eza --icons=always --octal-permissions'
 alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
-# Macos specific settings
-if [ "$(uname -s)" = "Darwin" ]; then
 
-  alias ls='ls -G'	
   function op() {
     local file
     file=$(find "$HOME" -type f 2>/dev/null | fzf --height 70%)
     [[ -n "$file" ]] && open "$file"
   }
 
-fi
 
 source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"

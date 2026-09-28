@@ -7,8 +7,12 @@ brew "awscli"
 brew "dos2unix"
 # Simple command-line tool for creating clusters on Amazon EKS
 brew "eksctl"
+# Modern, maintained replacement for ls
+brew "eza"
 # Like neofetch, but much faster because written mostly in C
 brew "fastfetch"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
 # Open and extensible continuous delivery solution for Kubernetes
 brew "fluxcd"
 # Command-line fuzzy finder written in Go
@@ -19,6 +23,10 @@ brew "helm"
 brew "jq"
 # Kubernetes command-line interface
 brew "kubernetes-cli"
+# Simple terminal UI for git commands
+brew "lazygit"
+# Terminal-based SSH manager
+brew "lazyssh"
 # TIFF library and utilities
 brew "libtiff"
 # Rainbows and unicorns in your console!
@@ -29,6 +37,8 @@ brew "neovim"
 brew "ollama"
 # Cross-shell prompt for astronauts
 brew "starship"
+# Organize software neatly under a single directory tree (e.g. /usr/local)
+brew "stow"
 # User interface to the TELNET protocol
 brew "telnet"
 # Display directories as trees (with optional color/HTML output)
@@ -45,6 +55,8 @@ brew "zsh-syntax-highlighting"
 brew "hashicorp/tap/terraform", trusted: true
 # Stream movies, shows, anime, and live TV from your terminal
 brew "mesamirh/moviebox-tui/moviebox-tui"
+# Native GUI for Homebrew casks
+cask "caskhub"
 # Web browser
 cask "firefox"
 cask "font-fira-code-nerd-font"
@@ -52,8 +64,6 @@ cask "font-fira-code-nerd-font"
 cask "ghostty"
 # Desktop client for GitHub repositories
 cask "github"
-# Homebrew's official GUI
-cask "homebrew-app"
 # File archiver
 cask "keka"
 # Open-source cross-platform alternative to AirDrop
@@ -72,6 +82,10 @@ cask "orbstack"
 cask "tablepro"
 # Open-source BitTorrent client
 cask "transmission"
+# Development environment
+cask "vagrant"
+# Gives Vagrant VMware plugin access to various VMware functionalities
+cask "vagrant-vmware-utility"
 # Open-source code editor
 cask "visual-studio-code"
 # Multimedia player
@@ -96,5 +110,4 @@ vscode "ms-vscode.remote-explorer"
 vscode "pkief.material-icon-theme"
 vscode "redhat.vscode-yaml"
 vscode "ritwickdey.liveserver"
-vscode "vira.vsc-vira-theme"
 vscode "vscode-icons-team.vscode-icons"
