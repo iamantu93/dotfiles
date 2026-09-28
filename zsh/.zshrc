@@ -1,6 +1,7 @@
 # ~/.zshrc file for zsh interactive shells.
 # see /usr/share/doc/zsh/examples/zshrc for examples
 eval "$(starship init zsh)"
+
 setopt autocd              # change directory just by typing its name
 setopt correct            # auto correct mistakes
 setopt interactivecomments # allow comments in interactive mode
@@ -45,6 +46,9 @@ zstyle ':completion:*' use-compctl false
 zstyle ':completion:*' verbose true
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
+source <(kubectl completion zsh)
+source <(helm completion zsh)
+source <(fzf --zsh)
 # History configurations
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
@@ -116,11 +120,14 @@ if [ "$(uname -s)" = "Darwin" ]; then
   }
 
 fi
+
+source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+
 # change suggestion color
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#999'
 
 # enable syntax-highlighting
- 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 ZSH_HIGHLIGHT_STYLES[default]=none
 ZSH_HIGHLIGHT_STYLES[unknown-token]=underline
@@ -168,12 +175,6 @@ ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]=standout
 if [ -f /etc/zsh_command_not_found ]; then
     . /etc/zsh_command_not_found
 fi
-
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source <(kubectl completion zsh)
-source <(helm completion zsh)
-source <(fzf --zsh)
 
 # Mole shell completion
 if output="$(mole completion zsh 2>/dev/null)"; then eval "$output"; fi
