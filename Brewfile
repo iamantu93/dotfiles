@@ -41,8 +41,6 @@ brew "starship"
 brew "stow"
 # User interface to the TELNET protocol
 brew "telnet"
-# Display directories as trees (with optional color/HTML output)
-brew "tree"
 # Executes a program periodically, showing output fullscreen
 brew "watch"
 # Blazing fast terminal file manager written in Rust, based on async I/O
