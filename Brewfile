@@ -3,6 +3,8 @@ tap "homebrew/cask"
 tap "mesamirh/moviebox-tui", "https://github.com/mesamirh/MovieBox-Tui", trusted: true
 # Official Amazon AWS command-line interface
 brew "awscli"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
 # Convert text between DOS, UNIX, and Mac formats
 brew "dos2unix"
 # Simple command-line tool for creating clusters on Amazon EKS
