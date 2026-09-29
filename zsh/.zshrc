@@ -100,10 +100,11 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
-alias ls='eza --icons=always --octal-permissions'
+alias ls='eza --icons=always --octal-permissions --group'
 alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
+alias cat='bat --style=plain -P'
 
   function op() {
     local file
