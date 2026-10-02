@@ -57,6 +57,8 @@ brew "hashicorp/tap/terraform", trusted: true
 brew "mesamirh/moviebox-tui/moviebox-tui"
 # Native GUI for Homebrew casks
 cask "caskhub"
+# Universal database tool and SQL client
+cask "dbeaver-community"
 # Web browser
 cask "firefox"
 cask "font-fira-code-nerd-font"
@@ -78,8 +80,6 @@ cask "obsidian"
 cask "onlyoffice"
 # Replacement for Docker Desktop
 cask "orbstack"
-# Native database client for many database types
-cask "tablepro"
 # Open-source BitTorrent client
 cask "transmission"
 # Development environment
