@@ -1,7 +1,6 @@
-background-opacity = 0.70
+background-opacity = 0.90
 theme = Earthsong
 background-blur = true
-background-blur-radius = 20
 font-size = 17
 #font-family = RobotoMono Nerd Font
 font-feature = calt,liga
