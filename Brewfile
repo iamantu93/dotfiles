@@ -5,6 +5,8 @@ tap "mesamirh/moviebox-tui", "https://github.com/mesamirh/MovieBox-Tui", trusted
 brew "awscli"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
+# Language server for Dockerfiles, Compose files, and Bake files
+brew "docker-language-server"
 # Convert text between DOS, UNIX, and Mac formats
 brew "dos2unix"
 # Simple command-line tool for creating clusters on Amazon EKS
@@ -19,6 +21,8 @@ brew "fd"
 brew "fluxcd"
 # Command-line fuzzy finder written in Go
 brew "fzf"
+# Post-modern modal text editor
+brew "helix"
 # Kubernetes package manager
 brew "helm"
 # Lightweight and flexible command-line JSON processor
@@ -37,14 +41,20 @@ brew "lolcat"
 brew "neovim"
 # Create, run, and share large language models (LLMs)
 brew "ollama"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
 # Cross-shell prompt for astronauts
 brew "starship"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
 brew "stow"
 # User interface to the TELNET protocol
 brew "telnet"
+# Terraform Language Server
+brew "terraform-ls"
 # Executes a program periodically, showing output fullscreen
 brew "watch"
+# Language Server for Yaml Files
+brew "yaml-language-server"
 # Blazing fast terminal file manager written in Rust, based on async I/O
 brew "yazi"
 # Fish-like fast/unobtrusive autosuggestions for zsh
@@ -62,10 +72,13 @@ cask "dbeaver-community"
 # Web browser
 cask "firefox"
 cask "font-fira-code-nerd-font"
+cask "font-roboto-mono-nerd-font"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
 # Desktop client for GitHub repositories
 cask "github"
+# Chromium-based web browser
+cask "helium-browser"
 # File archiver
 cask "keka"
 # Open-source cross-platform alternative to AirDrop
@@ -93,6 +106,7 @@ cask "vlc"
 # Native desktop client for WhatsApp
 cask "whatsapp"
 vscode "ahmadawais.shades-of-purple"
+vscode "beardedbear.beardedtheme"
 vscode "dracula-theme.theme-dracula"
 vscode "eamodio.gitlens"
 vscode "github.vscode-github-actions"
@@ -111,3 +125,4 @@ vscode "pkief.material-icon-theme"
 vscode "redhat.vscode-yaml"
 vscode "ritwickdey.liveserver"
 vscode "vscode-icons-team.vscode-icons"
+npm "pnpm"
