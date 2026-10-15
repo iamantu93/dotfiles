@@ -128,3 +128,4 @@ vscode "redhat.vscode-yaml"
 vscode "ritwickdey.liveserver"
 vscode "vscode-icons-team.vscode-icons"
 npm "pnpm"
+
