@@ -87,6 +87,8 @@ cask "localsend"
 cask "mangodisk"
 # Smooths scrolling and set mouse scroll directions independently
 cask "mos"
+# Unofficial native port of Notepad++
+cask "nextpad++"
 # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
 # Document editor
