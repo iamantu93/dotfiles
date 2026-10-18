@@ -1,4 +1,4 @@
-background-opacity = 0.90
+background-opacity = 0.80
 theme = Dracula+
 background-blur = true
 font-size = 16
@@ -8,3 +8,4 @@ window-decoration = client
 right-click-action = copy-or-paste
 macos-icon = blueprint
 macos-option-as-alt = true
+#custom-shader = ~/.config/ghostty/shaders/smoke-and-ghost.glsl
